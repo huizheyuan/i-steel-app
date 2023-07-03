@@ -1,0 +1,117 @@
+{
+  "easycom": {
+    "^u-(.*)": "@/uview-ui/components/u-$1/u-$2.vue"
+  },
+  "pages": [
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    },
+    {
+      "path": "pages/source/source",
+      "style": {
+        "navigationBarTitleText": "货源",
+        "enablePullDownRefresh": true,
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    },
+    {
+      "path": "pages/publish/publish",
+      "style": {
+        "navigationBarTitleText": "发布"
+      }
+    },
+    {
+      "path": "pages/price/price",
+      "style": {
+        "navigationBarTitleText": "行情",
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "style": {
+        "navigationBarTitleText": "注册",
+        "navigationStyle": "custom",
+        "titleImage": "",
+        "transparentTitle": "auto"
+      }
+    }
+  ],
+  "topWindow": {},
+  "globalStyle": {
+    "navigationBarTitleText": "i-steel-app",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#007AFF",
+    "backgroundColor": "#c5cdd6",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "#939393",
+    "backgroundColor": "rgba(255, 255, 255, .3)",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/img/tabbar/home.svg",
+        "selectedIconPath": "static/img/tabbar/home_active.svg",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/source/source",
+        "iconPath": "static/img/tabbar/source.svg",
+        "selectedIconPath": "static/img/tabbar/source_active.svg",
+        "text": "货源"
+      },
+      {
+        "pagePath": "pages/price/price",
+        "iconPath": "static/img/tabbar/price.svg",
+        "selectedIconPath": "static/img/tabbar/price_active.svg",
+        "text": "行情"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/img/tabbar/mine.svg",
+        "selectedIconPath": "static/img/tabbar/mine_active.svg",
+        "text": "我的"
+      }
+    ],
+    "midButton": {
+      "width": "70px",
+      "height": "45px",
+      "iconPath": "static/img/tabbar/publish.png",
+      "iconWidth": "26px",
+      "backgroundImage": "",
+      "text": "发布"
+    }
+  },
+  "uniIdRouter": {}
+}
