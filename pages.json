@@ -1,6 +1,6 @@
 {
   "easycom": {
-    "^u-(.*)": "@/uview-ui/components/u-$1/u-$2.vue"
+    "^u-(.*)": "@/node_modules/uview-ui/components/u-$1/u-$1.vue"
   },
   "pages": [
     {
@@ -17,9 +17,7 @@
       "style": {
         "navigationBarTitleText": "货源",
         "enablePullDownRefresh": true,
-        "navigationStyle": "custom",
-        "titleImage": "",
-        "transparentTitle": "auto"
+        "navigationStyle": "custom"
       }
     },
     {
@@ -32,36 +30,28 @@
       "path": "pages/price/price",
       "style": {
         "navigationBarTitleText": "行情",
-        "navigationStyle": "custom",
-        "titleImage": "",
-        "transparentTitle": "auto"
+        "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/mine/mine",
       "style": {
         "navigationBarTitleText": "我的",
-        "navigationStyle": "custom",
-        "titleImage": "",
-        "transparentTitle": "auto"
+        "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/login/login",
       "style": {
         "navigationBarTitleText": "登录",
-        "navigationStyle": "custom",
-        "titleImage": "",
-        "transparentTitle": "auto"
+        "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/login/register",
       "style": {
         "navigationBarTitleText": "注册",
-        "navigationStyle": "custom",
-        "titleImage": "",
-        "transparentTitle": "auto"
+        "navigationStyle": "custom"
       }
     }
   ],
@@ -71,7 +61,13 @@
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#007AFF",
     "backgroundColor": "#c5cdd6",
-    "onReachBottomDistance": 50
+    "backgroundColorBottom": "#FFFFFF",
+    "backgroundColorTop": "#FFFFFF",
+    "onReachBottomDistance": 50,
+    "bounce": "none",
+    "app-plus": {
+      "scrollIndicator": "none"
+    }
   },
   "tabBar": {
     "color": "#7A7E83",

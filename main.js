@@ -52,3 +52,10 @@ export function createApp() {
 import uView from "uview-ui";
 Vue.use(uView);
 uni.$u.config.unit = "rpx";
+
+// 发布界面跳转
+uni.onTabBarMidButtonTap(() => {
+  uni.navigateTo({
+    url: "/pages/publish/publish",
+  });
+});
