@@ -1,22 +1,27 @@
 // 枚举定义
 
-export default {
-  theme: {
-    dark: "dark",
-    light: "light",
-  },
-  SUPERVISE_STATUS: {
-    全部: -1,
-    待处理: 1,
-    处理中: 2,
-    已完成: 3,
-    已验收: 4,
-    properties: [
-      { label: "全部", value: -1 },
-      { label: "待处理", value: 1 },
-      { label: "处理中", value: 2 },
-      { label: "已完成", value: 3 },
-      { label: "已验收", value: 4 },
-    ],
-  },
+export const THEME = {
+  dark: "dark",
+  light: "light",
+};
+
+export const HOME_TOP_LIST = {
+  关注: 1,
+  推荐: 2,
+  废钢: 3,
+  废有色: 4,
+  废不锈钢: 5,
+  钢坯: 6,
+  期货: 7,
+  铁合金: 8,
+  properties: [
+    { key: 1, name: "关注", closable: false },
+    { key: 2, name: "推荐", closable: false },
+    { key: 3, name: "废钢", closable: false },
+    { key: 4, name: "废有色", closable: false },
+    { key: 5, name: "废不锈钢", closable: false },
+    { key: 6, name: "钢坯", closable: false },
+    { key: 7, name: "期货", closable: false },
+    { key: 8, name: "铁合金", closable: false },
+  ],
 };
