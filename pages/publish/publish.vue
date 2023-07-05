@@ -41,11 +41,24 @@
         <u-input
           v-model="formModel.category"
           placeholder="请选择分类"
+          disabled
           :border="'none'"
         ></u-input>
         <u-icon slot="right" name="arrow-right"></u-icon>
       </u-form-item>
-      <u-form-item label="地点：" prop="addr" borderBottom required>
+      <u-form-item
+        label="地点："
+        prop="addr"
+        borderBottom
+        required
+        @click="showMap"
+      >
+        <u-input
+          v-model="formModel.addr"
+          placeholder="请选择地点"
+          disabled
+          :border="'none'"
+        ></u-input>
         <u-icon slot="right" name="arrow-right"></u-icon>
       </u-form-item>
       <u-form-item
@@ -58,6 +71,7 @@
         <u-input
           v-model="formModel.stateEnum"
           placeholder="请选择状态"
+          disabled
           :border="'none'"
         ></u-input>
         <u-icon slot="right" name="arrow-right"></u-icon>
@@ -159,6 +173,13 @@ export default {
     };
   },
   methods: {
+    showMap() {
+      uni.navigateTo({
+        url: "/pages/publish/publishMap",
+        animationType: "slide-in-bottom",
+        animationDuration: 2000,
+      });
+    },
     async afterRead(event) {
       console.log(event);
       // 当设置 multiple 为 true 时, file 为数组格式，否则为对象格式
@@ -200,9 +221,8 @@ export default {
 
 <style lang="scss" scoped>
 .publish-wrap {
+  //   background-color: $uni-bg-color;
   height: 100%;
-  background-color: $uni-bg-color;
-  margin: 0 16rpx;
   padding: 0 20rpx;
   display: flex;
   flex-direction: column;

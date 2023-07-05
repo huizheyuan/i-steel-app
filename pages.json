@@ -27,6 +27,13 @@
       }
     },
     {
+      "path": "pages/publish/publishMap",
+      "style": {
+        "navigationBarTitleText": "地点",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/price/price",
       "style": {
         "navigationBarTitleText": "行情",
@@ -59,8 +66,8 @@
   "globalStyle": {
     "navigationBarTitleText": "i-steel-app",
     "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#007AFF",
-    "backgroundColor": "#c5cdd6",
+    "navigationBarBackgroundColor": "#3c9cff",
+    "backgroundColor": "#f8f8f8",
     "backgroundColorBottom": "#FFFFFF",
     "backgroundColorTop": "#FFFFFF",
     "onReachBottomDistance": 50,

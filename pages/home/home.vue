@@ -1,12 +1,11 @@
 <template>
-  <view>
+  <view class="home-wrap">
     <!-- 当设置tab-width,指定每个tab宽度时,则不使用flex布局,改用水平滑动 -->
-    <me-tabs
-      v-model="tabIndex"
-      :tabs="tabs"
-      :fixed="true"
-      :tab-width="130"
-    ></me-tabs>
+    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="true" :tab-width="130">
+      <view slot="right" style="padding-left: 16rpx" @tap="showAllTabs = true">
+        <u-icon name="list" size="50" bold></u-icon>
+      </view>
+    </me-tabs>
     <swiper
       :style="{ height: height }"
       :current="tabIndex"
@@ -21,10 +20,42 @@
         ></mescroll-item>
       </swiper-item>
     </swiper>
+    <u-popup
+      :show="showAllTabs"
+      :round="10"
+      mode="top"
+      closeable
+      @close="showAllTabs = false"
+      class="popupTag"
+    >
+      <view class="tagBox">
+        <h4 class="tagTitle center">所有标签页</h4>
+        <u-tag
+          v-for="(item, index) in tabs"
+          :key="index"
+          :text="item.name"
+          :closable="item.closable"
+          type="info"
+          plain
+          class="tag"
+        >
+        </u-tag>
+      </view>
+      <u-button
+        type="info"
+        icon="edit-pen"
+        shape="circle"
+        class="tagBtn center"
+        @click="goSort"
+      >
+        自定义排序
+      </u-button>
+    </u-popup>
   </view>
 </template>
 
 <script>
+import { HOME_TOP_LIST } from "@/common/enums.js";
 import MescrollItem from "./components/mescroll-swiper-item.vue";
 
 export default {
@@ -33,22 +64,14 @@ export default {
   },
   data() {
     return {
+      showAllTabs: false,
       height: "400px", // 需要固定swiper的高度
-      tabs: [
-        { name: "全部" },
-        { name: "奶粉" },
-        { name: "面膜" },
-        { name: "图书" },
-        { name: "果汁" },
-        { name: "奶瓶" },
-        { name: "美素" },
-        { name: "花王" },
-        { name: "韩蜜" },
-      ],
+      tabs: HOME_TOP_LIST.properties,
       tabIndex: 0, // 当前tab的下标
     };
   },
   methods: {
+    goSort() {},
     // 轮播菜单
     swiperChange(e) {
       this.tabIndex = e.detail.current;
@@ -78,4 +101,29 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.home-wrap {
+  height: 100%;
+  background-color: $uni-bg-color;
+  display: flex;
+  flex-direction: column;
+  .popupTag {
+    .tagBox {
+      padding: 40rpx 20rpx 20rpx;
+      background-color: $uni-bg-color-grey;
+      .tagTitle {
+        margin: 20rpx 0 40rpx;
+      }
+      .tag {
+        width: fit-content;
+        display: inline-block;
+        margin: 0 10rpx 16rpx;
+      }
+    }
+    .tagBtn {
+      width: 50%;
+      margin: 20rpx auto;
+    }
+  }
+}
+</style>

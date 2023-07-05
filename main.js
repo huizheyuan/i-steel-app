@@ -57,6 +57,8 @@ uni.$u.config.unit = "rpx";
 uni.onTabBarMidButtonTap(() => {
   uni.navigateTo({
     url: "/pages/publish/publish",
+    animationType: "slide-in-bottom",
+    animationDuration: 2000,
   });
 });
 
