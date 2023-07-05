@@ -23,7 +23,7 @@
     {
       "path": "pages/publish/publish",
       "style": {
-        "navigationBarTitleText": "发布"
+        "navigationBarTitleText": "发布货源"
       }
     },
     {

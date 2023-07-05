@@ -15,7 +15,11 @@
         <span class="subTitle">爱钢号：{{ userInfo.account }}</span>
       </u-col>
       <u-col span="2" align="bottom">
-        <u-icon size="40" name="arrow-right"></u-icon>
+        <u-icon
+          size="40"
+          name="arrow-right"
+          color="color['u-content-color']"
+        ></u-icon>
       </u-col>
     </u-row>
     <u-grid :border="true" col="4" @click="clickCard" class="cardBox">
@@ -23,12 +27,12 @@
         <u-icon
           :customStyle="{ paddingTop: 20 + 'rpx' }"
           :name="item.icon"
-          :size="22"
+          :size="50"
         ></u-icon>
-        <text>{{ item.title }}</text>
+        <text style="font-size: 25rpx">{{ item.title }}</text>
       </u-grid-item>
     </u-grid>
-    <u-cell-group class="listBox">
+    <u-cell-group :border="false" class="listBox">
       <u-cell
         v-for="(item, index) in list"
         :key="index"
@@ -36,6 +40,7 @@
         :title="item.title"
         :value="item.value"
         :label="item.label"
+        :border="!(index === list.length - 1)"
         isLink
         @click="clickList(item)"
       >
@@ -87,12 +92,16 @@ export default {
 <style lang="scss" scoped>
 .mine-wrap {
   .userBox {
-    padding: 60rpx 20rpx 0;
+    padding: 80rpx 20rpx 60rpx;
+    background-color: $uni-color-primary;
+    box-shadow: 2px 2px 10px $uni-color-primary;
+    color: $uni-text-color-inverse;
     .title {
-      margin: 10rpx 0;
+      margin: 18rpx 0;
+      font-size: 36rpx;
     }
     .subTitle {
-      font-size: 28rpx;
+      font-size: 26rpx;
     }
   }
   .cardBox {
@@ -103,6 +112,9 @@ export default {
   }
   .listBox {
     background-color: $uni-bg-color;
+    border-radius: 10rpx;
+    margin: 20rpx 20rpx;
+    padding: 18rpx 20rpx;
   }
 }
 </style>

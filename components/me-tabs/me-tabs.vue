@@ -5,43 +5,43 @@
     :class="{ 'tabs-fixed': fixed }"
     :style="{ height: tabHeightVal }"
   >
-    <scroll-view
-      v-if="tabs.length"
-      :id="viewId"
-      :scroll-left="scrollLeft"
-      scroll-x
-      scroll-with-animation
-      :scroll-animation-duration="300"
-    >
-      <view
-        class="tabs-item"
-        :class="{ 'tabs-flex': !isScroll, 'tabs-scroll': isScroll }"
-      >
-        <!-- tab -->
-        <view
-          class="tab-item"
-          :style="{
-            width: tabWidthVal,
-            height: tabHeightVal,
-            'line-height': tabHeightVal,
-          }"
-          v-for="(tab, i) in tabs"
-          :class="{ active: value === i }"
-          :key="i"
-          @click="tabClick(i)"
+    <view style="height: 100%; display: flex; flex-direction: row">
+      <slot name="left"></slot>
+      <view style="flex: 1; overflow: auto hidden">
+        <scroll-view
+          v-if="tabs.length"
+          :id="viewId"
+          :scroll-left="scrollLeft"
+          scroll-x
+          scroll-with-animation
+          :scroll-animation-duration="300"
         >
-          {{ getTabName(tab) }}
-        </view>
-        <!-- 下划线 -->
-        <view class="tabs-line" :style="{ left: lineLeft }"></view>
+          <view
+            class="tabs-item"
+            :class="{ 'tabs-flex': !isScroll, 'tabs-scroll': isScroll }"
+          >
+            <!-- tab -->
+            <view
+              class="tab-item"
+              :style="{
+                width: tabWidthVal,
+                height: tabHeightVal,
+                'line-height': tabHeightVal,
+              }"
+              v-for="(tab, i) in tabs"
+              :class="{ active: value === i }"
+              :key="i"
+              @click="tabClick(i)"
+            >
+              {{ getTabName(tab) }}
+            </view>
+            <!-- 下划线 -->
+            <view class="tabs-line" :style="{ left: lineLeft }"></view>
+          </view>
+        </scroll-view>
       </view>
-    </scroll-view>
-    <u-icon
-      name="list"
-      size="50"
-      bold
-      style="position: relative; left: 0; top: 0"
-    ></u-icon>
+      <slot name="right"></slot>
+    </view>
   </view>
 </template>
 
@@ -70,7 +70,7 @@ export default {
     height: {
       // 高度,单位rpx
       type: Number,
-      default: 64,
+      default: 80,
     },
   },
   data() {
@@ -198,7 +198,8 @@ export default {
       box-sizing: border-box;
       &.active {
         font-weight: bold;
-        color: red;
+        color: $uni-color-primary;
+        transform: scale(1.2);
       }
     }
   }
@@ -227,7 +228,7 @@ export default {
     transform: translateX(-50%);
     border-radius: 4rpx;
     transition: left 0.3s;
-    background: red;
+    background: $uni-color-primary;
   }
 }
 </style>

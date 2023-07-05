@@ -2,7 +2,11 @@
   <view class="home-wrap">
     <!-- 当设置tab-width,指定每个tab宽度时,则不使用flex布局,改用水平滑动 -->
     <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="true" :tab-width="130">
-      <view slot="right" style="padding-left: 16rpx" @tap="showAllTabs = true">
+      <view
+        slot="right"
+        style="align-self: center; padding: 16rpx"
+        @tap="showAllTabs = true"
+      >
         <u-icon name="list" size="50" bold></u-icon>
       </view>
     </me-tabs>
