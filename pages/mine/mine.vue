@@ -1,7 +1,12 @@
 <!-- 我的主页面 -->
 <template>
   <view class="mine-wrap">
-    <u-row justify="space-between" gutter="10" class="userBox">
+    <u-row
+      justify="space-between"
+      gutter="10"
+      class="userBox"
+      @click="clickUser"
+    >
       <u-col span="4" align="center">
         <u-avatar
           :src="userInfo.avatar"
@@ -29,7 +34,7 @@
           :name="item.icon"
           :size="50"
         ></u-icon>
-        <text style="font-size: 25rpx">{{ item.title }}</text>
+        <text class="gridText">{{ item.title }}</text>
       </u-grid-item>
     </u-grid>
     <u-cell-group :border="false" class="listBox">
@@ -78,6 +83,9 @@ export default {
     };
   },
   methods: {
+    clickUser() {
+      uni.navigateTo({ url: "/pages/mine/2nd/user" });
+    },
     clickCard(index) {
       const path = this.cardList[index].path;
       uni.navigateTo({ url: path });
@@ -98,10 +106,10 @@ export default {
     color: $uni-text-color-inverse;
     .title {
       margin: 18rpx 0;
-      font-size: 36rpx;
+      font-size: $uni-font-size-lg;
     }
     .subTitle {
-      font-size: 26rpx;
+      font-size: $uni-font-size-base;
     }
   }
   .cardBox {
@@ -109,6 +117,9 @@ export default {
     padding: 36rpx 20rpx;
     margin: 30rpx 20rpx;
     border-radius: 10rpx;
+    .gridText {
+      font-size: $uni-font-size-sm;
+    }
   }
   .listBox {
     background-color: $uni-bg-color;

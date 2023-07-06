@@ -13,11 +13,23 @@
       }
     },
     {
+      "path": "pages/home/home-search",
+      "style": {
+        "navigationBarTitleText": "首页-搜索",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/source/source",
       "style": {
         "navigationBarTitleText": "货源",
-        "enablePullDownRefresh": true,
         "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/message/message",
+      "style": {
+        "navigationBarTitleText": "消息"
       }
     },
     {
@@ -37,6 +49,7 @@
       "path": "pages/price/price",
       "style": {
         "navigationBarTitleText": "行情",
+        "enablePullDownRefresh": true,
         "navigationStyle": "custom"
       }
     },
@@ -44,6 +57,13 @@
       "path": "pages/mine/mine",
       "style": {
         "navigationBarTitleText": "我的",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/mine/2nd/user",
+      "style": {
+        "navigationBarTitleText": "用户信息",
         "navigationStyle": "custom"
       }
     },

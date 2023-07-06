@@ -1,6 +1,5 @@
 <template>
-  <div>
-    {{ record }}
+  <view>
     <u-swiper
       :list="adList"
       keyName="url"
@@ -12,25 +11,36 @@
       radius="5"
       height="300"
     ></u-swiper>
-    <view v-for="item in dataList" :key="item.id" style="height: 200px">
-      {{ item.id }}、{{ item.name }}
+    <view class="good-list">
+      <view
+        :id="'good' + good.id"
+        class="good-li"
+        v-for="good in list"
+        :key="good.id"
+      >
+        <image class="good-img" :src="good.goodImg" mode="widthFix" />
+        <view class="flex-item">
+          <view class="good-name">{{ good.goodName }}</view>
+          <text class="good-price">{{ good.goodPrice }} 元</text>
+          <text class="good-sold">已售{{ good.goodSold }}件</text>
+        </view>
+      </view>
     </view>
-  </div>
+  </view>
 </template>
 
 <script>
-import { HOME_TOP_LIST } from "@/common/enums";
-
 export default {
   props: {
-    record: {
-      type: Object,
-      default: () => {},
+    list: {
+      type: Array,
+      default() {
+        return [];
+      },
     },
   },
   data() {
     return {
-      HOME_TOP_LIST,
       adList: [
         {
           url: "https://cdn.uviewui.com/uview/swiper/swiper3.png",
@@ -43,35 +53,47 @@ export default {
           type: "video",
         },
       ],
-      dataList: [],
     };
-  },
-  onLoad() {},
-  mounted() {},
-  methods: {
-    refresh() {
-      console.log("HomeFocus refresh");
-      this.dataList = [
-        { id: 1, name: "qqq" },
-        { id: 2, name: "qqq" },
-        { id: 3, name: "qqq" },
-        { id: 4, name: "qqq" },
-      ];
-    },
-    load() {
-      console.log("HomeFocus load");
-      this.dataList.concat([
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-        { id: Math.random(), name: "qqq" },
-      ]);
-      console.log("HomeFocus load", this.dataList);
-    },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.good-list {
+  background-color: #fff;
+
+  .good-li {
+    display: flex;
+    align-items: center;
+    padding: 20upx;
+    border-bottom: 1upx solid #eee;
+
+    .good-img {
+      width: 160upx;
+      height: 160upx;
+      margin-right: 20rpx;
+    }
+
+    .flex-item {
+      flex: 1;
+
+      .good-name {
+        font-size: 26upx;
+        line-height: 40upx;
+        height: 80upx;
+        margin-bottom: 20upx;
+        overflow: hidden;
+      }
+      .good-price {
+        font-size: 26upx;
+        color: red;
+      }
+      .good-sold {
+        font-size: 24upx;
+        margin-left: 16upx;
+        color: gray;
+      }
+    }
+  }
+}
+</style>

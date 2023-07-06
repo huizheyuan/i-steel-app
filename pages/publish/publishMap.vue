@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <view>
     <view class="page-body">
       <view class="page-section page-section-gap">
         <map
@@ -10,7 +10,7 @@
         </map>
       </view>
     </view>
-  </div>
+  </view>
 </template>
 
 <script>

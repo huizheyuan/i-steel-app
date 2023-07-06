@@ -1,7 +1,7 @@
 <template>
   <view class="home-wrap">
-    <!-- 当设置tab-width,指定每个tab宽度时,则不使用flex布局,改用水平滑动 -->
-    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="true" :tab-width="130">
+    <swiper-search :list="searchList" @click="goSearch"></swiper-search>
+    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
       <view
         slot="right"
         style="align-self: center; padding: 16rpx"
@@ -60,10 +60,12 @@
 
 <script>
 import { HOME_TOP_LIST } from "@/common/enums.js";
-import MescrollItem from "./components/mescroll-swiper-item.vue";
+import SwiperSearch from "@/components/swiper-search";
+import MescrollItem from "./components/home-mescroll-swiper-item.vue";
 
 export default {
   components: {
+    SwiperSearch,
     MescrollItem,
   },
   data() {
@@ -72,9 +74,21 @@ export default {
       height: "400px", // 需要固定swiper的高度
       tabs: HOME_TOP_LIST.properties,
       tabIndex: 0, // 当前tab的下标
+      searchList: [
+        { id: "1111", title: "日照香炉生紫烟" },
+        { id: "2222", title: "遥看瀑布挂前川" },
+        { id: "3333", title: "飞流直下三千尺" },
+        { id: "4444", title: "疑似银河落九天" },
+      ],
     };
   },
   methods: {
+    goSearch(current) {
+      console.log(current);
+      uni.navigateTo({
+        url: "/pages/home/home-search",
+      });
+    },
     goSort() {},
     // 轮播菜单
     swiperChange(e) {

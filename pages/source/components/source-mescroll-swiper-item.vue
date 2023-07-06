@@ -16,19 +16,17 @@
     @emptyclick="emptyClick"
   >
     <!-- 数据列表 -->
-    <good-list :list="goods"></good-list>
   </mescroll-uni>
 </template>
 
 <script>
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import MescrollMoreItemMixin from "@/components/mescroll-uni/mixins/mescroll-more-item.js";
-import goodList from "./good-list";
 import { apiSearch } from "@/api/mock/index.js";
 
 export default {
   mixins: [MescrollMixin, MescrollMoreItemMixin], // 注意此处还需使用MescrollMoreItemMixin (必须写在MescrollMixin后面)
-  components: { goodList },
+  components: {},
   data() {
     return {
       downOption: {

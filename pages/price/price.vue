@@ -1,4 +1,4 @@
 <!-- 行情 -->
 <template>
-  <div></div>
+  <view></view>
 </template>
