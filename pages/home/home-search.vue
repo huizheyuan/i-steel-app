@@ -6,14 +6,20 @@
     :up="upOption"
     @up="upCallback"
   >
+    <u-search
+      v-model="curWord"
+      :showAction="false"
+      bgColor="#ffffff"
+      borderColor="#c8c7cc"
+      searchIconColor="#2979ff"
+      :searchIconSize="40"
+      color="#2979ff"
+      placeholderColor="#2979ff"
+      margin="30rpx"
+      height="64"
+      placeholder="请输入搜索关键词"
+    ></u-search>
     <view class="item">
-      <text class="tip">热门搜索:</text>
-      <text class="hot-word" @click="doSearch('奶粉')">奶粉</text>
-      <text class="hot-word" @click="doSearch('面霜')">面霜</text>
-      <text class="hot-word" @click="doSearch('图书')">图书</text>
-    </view>
-    <view class="item">
-      <text class="tip">关键词:</text>
       <input
         class="word-input"
         placeholder="请输入搜索关键词"
@@ -85,7 +91,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 /*关键词搜索*/
 .item {
   padding: 20rpx;

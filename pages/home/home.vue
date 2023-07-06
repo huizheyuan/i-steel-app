@@ -1,15 +1,18 @@
 <template>
   <view class="home-wrap">
-    <swiper-search :list="searchList" @click="goSearch"></swiper-search>
-    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
-      <view
-        slot="right"
-        style="align-self: center; padding: 16rpx"
-        @tap="showAllTabs = true"
-      >
-        <u-icon name="list" size="50" bold></u-icon>
-      </view>
-    </me-tabs>
+    <view>
+      <swiper-search :list="searchList" @click="goSearch"></swiper-search>
+      <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
+        <view
+          slot="right"
+          style="align-self: center; padding: 16rpx"
+          @tap="showAllTabs = true"
+        >
+          <u-icon name="list" size="50" bold></u-icon>
+        </view>
+      </me-tabs>
+    </view>
+
     <swiper
       :style="{ height: height }"
       :current="tabIndex"

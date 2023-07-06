@@ -7,20 +7,16 @@
     @down="downCallback"
     @up="upCallback"
   >
-    <!-- <view class="news-li" v-for="news in dataList" :key="news.id">
-      <view>{{ news.title }}</view>
-      <view class="new-content">{{ news.content }}</view>
-    </view> -->
-    <u-swipe-action @click="clickMsg">
+    <u-swipe-action>
       <u-swipe-action-item
+        :options="actionOpts"
         v-for="item in dataList"
         :key="item.id"
-        :options="actionOpts"
-        class="news-li"
       >
         <view class="swipe-action u-border-top u-border-bottom">
           <view class="swipe-action__content">
             <text class="swipe-action__content__text">{{ item.title }}</text>
+            <text class="swipe-action__content__text">{{ item.content }}</text>
           </view>
         </view>
       </u-swipe-action-item>
@@ -105,15 +101,7 @@ export default {
 };
 </script>
 
-<style scoped>
-/*说明*/
-.notice {
-  font-size: 30upx;
-  padding: 40upx 0;
-  border-bottom: 1upx solid #eee;
-  text-align: center;
-}
-/*展示上拉加载的数据列表*/
+<style lang="scss" scoped>
 .news-li {
   font-size: 32upx;
   padding: 32upx;

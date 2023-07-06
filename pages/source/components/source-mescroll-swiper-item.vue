@@ -8,7 +8,7 @@
     :ref="'mescrollRef' + i"
     @init="mescrollInit"
     height="100%"
-    top="60"
+    top="0"
     :down="downOption"
     @down="downCallback"
     :up="upOption"
@@ -16,13 +16,19 @@
     @emptyclick="emptyClick"
   >
     <!-- 数据列表 -->
+    <view style="height: 400px; background-color: yellow">哈卡就</view>
+    <view style="height: 400px">哈卡就</view>
+    <view style="height: 400px">哈卡就</view>
+    <view style="height: 400px">哈卡就</view>
+    <view style="height: 400px">哈卡就</view>
+    <view style="height: 400px">哈卡就</view>
   </mescroll-uni>
 </template>
 
 <script>
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import MescrollMoreItemMixin from "@/components/mescroll-uni/mixins/mescroll-more-item.js";
-import { apiSearch } from "@/api/mock/index.js";
+import { apiSearch } from "@/api/mock";
 
 export default {
   mixins: [MescrollMixin, MescrollMoreItemMixin], // 注意此处还需使用MescrollMoreItemMixin (必须写在MescrollMixin后面)

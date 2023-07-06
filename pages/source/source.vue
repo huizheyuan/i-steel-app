@@ -1,20 +1,27 @@
 <!-- 货源 -->
 <template>
   <view class="source-wrap">
-    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="true" :tab-width="130">
-      <view
-        slot="right"
-        style="align-self: center; padding: 16rpx"
-        @tap="goMsg"
-      >
-        <u-icon name="chat" size="50" bold></u-icon>
-      </view>
-    </me-tabs>
-    <u-row>
-      <!-- TODO -->
-      <u-col span="6">区域</u-col>
-      <u-col span="6">发布时间</u-col>
-    </u-row>
+    <view>
+      <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
+        <view
+          slot="right"
+          style="align-self: center; padding: 16rpx"
+          @tap="goMsg"
+        >
+          <u-icon name="chat" size="50" bold></u-icon>
+        </view>
+      </me-tabs>
+      <u-row justify="space-between" gutter="10">
+        <u-col span="6" textAlign="center">
+          区域
+          <u-icon name="arrow-down" color="#2979ff" size="40"></u-icon>
+        </u-col>
+        <u-col span="6" textAlign="center">
+          发布时间
+          <u-icon name="arrow-down" color="#2979ff" size="40"></u-icon>
+        </u-col>
+      </u-row>
+    </view>
     <swiper
       :style="{ height: height }"
       :current="tabIndex"

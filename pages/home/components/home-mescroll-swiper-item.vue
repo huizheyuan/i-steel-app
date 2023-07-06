@@ -8,7 +8,7 @@
     :ref="'mescrollRef' + i"
     @init="mescrollInit"
     height="100%"
-    top="60"
+    top="0"
     :down="downOption"
     @down="downCallback"
     :up="upOption"
@@ -23,7 +23,7 @@
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import MescrollMoreItemMixin from "@/components/mescroll-uni/mixins/mescroll-more-item.js";
 import HomeFocus from "./home-focus";
-import { apiSearch } from "@/api/mock/index.js";
+import { apiSearch } from "@/api/mock";
 
 export default {
   mixins: [MescrollMixin, MescrollMoreItemMixin],
@@ -79,6 +79,7 @@ export default {
       let keyword = this.tabs[this.i].name;
       apiSearch(page.num, page.size, keyword)
         .then((curPageData) => {
+          console.log(curPageData);
           //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
           this.mescroll.endSuccess(curPageData.length);
           //设置列表数据

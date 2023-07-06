@@ -93,7 +93,7 @@ export function apiSearch(pageNum, pageSize, keyword) {
       try {
         // 模拟搜索
         let list = [];
-        if (!keyword || keyword == "全部") {
+        if (!keyword || keyword == "关注") {
           // 模拟搜索全部商品
           for (let i = (pageNum - 1) * pageSize; i < pageNum * pageSize; i++) {
             if (i === goods.length) break;
