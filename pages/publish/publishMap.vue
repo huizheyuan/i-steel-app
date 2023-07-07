@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import location from "@/static/img/common/location.png";
+import iconLocation from "@/static/img/common/location.png";
 
 export default {
   data() {
@@ -27,12 +27,12 @@ export default {
         {
           latitude: 39.909,
           longitude: 116.39742,
-          iconPath: location,
+          iconPath: iconLocation,
         },
         {
           latitude: 39.9,
           longitude: 116.39,
-          iconPath: location,
+          iconPath: iconLocation,
         },
       ],
     };

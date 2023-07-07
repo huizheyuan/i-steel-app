@@ -79,7 +79,6 @@ export default {
       let keyword = this.tabs[this.i].name;
       apiSearch(page.num, page.size, keyword)
         .then((curPageData) => {
-          console.log(curPageData);
           //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
           this.mescroll.endSuccess(curPageData.length);
           //设置列表数据

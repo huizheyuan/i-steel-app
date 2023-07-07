@@ -4,7 +4,7 @@
     <u-form
       :model="formModel"
       :rules="rules"
-      :errorType="message"
+      errorType="message"
       labelWidth="auto"
       labelPosition="left"
       labelAlign="left"
@@ -253,7 +253,7 @@ export default {
   methods: {
     showMap() {
       this.hideKeyboard();
-      uni.navigateTo({
+      uni.$u.route({
         url: "/pages/publish/publishMap",
         animationType: "slide-in-bottom",
         animationDuration: 2000,

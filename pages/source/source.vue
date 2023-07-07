@@ -11,16 +11,7 @@
           <u-icon name="chat" size="50" bold></u-icon>
         </view>
       </me-tabs>
-      <u-row justify="space-between" gutter="10">
-        <u-col span="6" textAlign="center">
-          区域
-          <u-icon name="arrow-down" color="#2979ff" size="40"></u-icon>
-        </u-col>
-        <u-col span="6" textAlign="center">
-          发布时间
-          <u-icon name="arrow-down" color="#2979ff" size="40"></u-icon>
-        </u-col>
-      </u-row>
+      <filter-box></filter-box>
     </view>
     <swiper
       :style="{ height: height }"
@@ -42,10 +33,12 @@
 <script>
 import { HOME_TOP_LIST } from "@/common/enums.js";
 import MescrollItem from "./components/source-mescroll-swiper-item.vue";
+import FilterBox from "./components/source-filter-box.vue";
 
 export default {
   components: {
     MescrollItem,
+    FilterBox,
   },
   data() {
     return {
@@ -56,7 +49,7 @@ export default {
   },
   methods: {
     goMsg() {
-      uni.navigateTo({
+      uni.$u.route({
         url: "/pages/message/message",
       });
     },

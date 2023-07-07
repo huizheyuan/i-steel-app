@@ -84,14 +84,14 @@ export default {
   },
   methods: {
     clickUser() {
-      uni.navigateTo({ url: "/pages/mine/2nd/user" });
+      uni.$u.route({ url: "/pages/mine/2nd/user" });
     },
     clickCard(index) {
       const path = this.cardList[index].path;
-      uni.navigateTo({ url: path });
+      uni.$u.route({ url: path });
     },
     clickList({ path }) {
-      uni.navigateTo({ url: path });
+      uni.$u.route({ url: path });
     },
   },
 };

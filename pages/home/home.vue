@@ -1,7 +1,12 @@
 <template>
   <view class="home-wrap">
     <view>
-      <swiper-search :list="searchList" @click="goSearch"></swiper-search>
+      <swiper-search
+        :list="searchList"
+        :iconSize="40"
+        iconColor="#3c9cff"
+        @click="goSearch"
+      ></swiper-search>
       <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
         <view
           slot="right"
@@ -87,9 +92,9 @@ export default {
   },
   methods: {
     goSearch(current) {
-      console.log(current);
-      uni.navigateTo({
+      uni.$u.route({
         url: "/pages/home/home-search",
+        params: this.searchList[current],
       });
     },
     goSort() {},

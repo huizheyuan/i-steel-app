@@ -1,6 +1,11 @@
 <template>
   <view class="swiper-search">
-    <u-icon name="search" color="#2979ff" size="40" class="searchIcon"></u-icon>
+    <u-icon
+      name="search"
+      :color="iconColor"
+      :size="iconSize"
+      class="searchIcon"
+    ></u-icon>
     <swiper
       :current="current"
       :circular="circular"
@@ -28,6 +33,14 @@ export default {
     keyName: {
       type: String,
       default: "title",
+    },
+    iconColor: {
+      type: String,
+      default: "#2979ff",
+    },
+    iconSize: {
+      type: Number,
+      default: 40,
     },
     circular: {
       type: Boolean,

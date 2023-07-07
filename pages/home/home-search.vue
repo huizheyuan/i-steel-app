@@ -11,23 +11,16 @@
       :showAction="false"
       bgColor="#ffffff"
       borderColor="#c8c7cc"
-      searchIconColor="#2979ff"
       :searchIconSize="40"
-      color="#2979ff"
-      placeholderColor="#2979ff"
+      searchIconColor="#3c9cff"
+      color="#333"
+      placeholderColor="#808080"
       margin="30rpx"
       height="64"
       placeholder="请输入搜索关键词"
+      @change="inputWord"
     ></u-search>
-    <view class="item">
-      <input
-        class="word-input"
-        placeholder="请输入搜索关键词"
-        v-model="curWord"
-        @input="inputWord"
-      />
-    </view>
-    <good-list :list="goods"></good-list>
+    <!-- <good-list :list="goods"></good-list> -->
   </mescroll-body>
 </template>
 
@@ -53,6 +46,9 @@ export default {
       goods: [], // 数据列表
       curWord: "", //当前搜索关键词
     };
+  },
+  onLoad(value) {
+    console.log(value);
   },
   methods: {
     // 输入监听
@@ -91,35 +87,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/*关键词搜索*/
-.item {
-  padding: 20rpx;
-}
-.tip {
-  font-size: 30rpx;
-  vertical-align: middle;
-}
-.hot-word {
-  font-size: 24rpx;
-  margin-left: 30rpx;
-  padding: 6rpx 40rpx;
-  border: 2rpx solid #ff6990;
-  border-radius: 100rpx;
-  vertical-align: middle;
-  color: #ff6990;
-}
-.word-input {
-  display: inline-block;
-  width: 60%;
-  height: 50rpx;
-  line-height: 50rpx;
-  font-size: 24rpx;
-  margin-left: 30rpx;
-  border: 2rpx solid #18b4fe;
-  border-radius: 60rpx;
-  text-align: center;
-  background-color: #fff;
-  vertical-align: middle;
-}
-</style>
+<style lang="scss" scoped></style>

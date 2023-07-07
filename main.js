@@ -55,7 +55,7 @@ uni.$u.config.unit = "rpx";
 
 // 发布界面跳转
 uni.onTabBarMidButtonTap(() => {
-  uni.navigateTo({
+  uni.$u.route({
     url: "/pages/publish/publish",
     animationType: "slide-in-bottom",
     animationDuration: 2000,
