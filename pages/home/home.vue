@@ -6,12 +6,20 @@
         :iconSize="40"
         iconColor="#3c9cff"
         @click="goSearch"
-      ></swiper-search>
+      >
+        <view
+          slot="left"
+          style="align-self: center; padding: 16rpx; display: flex"
+        >
+          <u-icon name="star" size="45" bold></u-icon>
+          <u-icon name="map" size="45" bold @tap="goLocation"></u-icon>
+        </view>
+      </swiper-search>
       <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
         <view
           slot="right"
           style="align-self: center; padding: 16rpx"
-          @tap="showAllTabs = true"
+          @tap="$refs.HomeTagSort.load()"
         >
           <u-icon name="list" size="50" bold></u-icon>
         </view>
@@ -32,37 +40,8 @@
         ></mescroll-item>
       </swiper-item>
     </swiper>
-    <u-popup
-      :show="showAllTabs"
-      :round="10"
-      mode="top"
-      closeable
-      @close="showAllTabs = false"
-      class="popupTag"
-    >
-      <view class="tagBox">
-        <h4 class="tagTitle center">所有标签页</h4>
-        <u-tag
-          v-for="(item, index) in tabs"
-          :key="index"
-          :text="item.name"
-          :closable="item.closable"
-          type="info"
-          plain
-          class="tag"
-        >
-        </u-tag>
-      </view>
-      <u-button
-        type="info"
-        icon="edit-pen"
-        shape="circle"
-        class="tagBtn center"
-        @click="goSort"
-      >
-        自定义排序
-      </u-button>
-    </u-popup>
+
+    <home-tag-sort ref="HomeTagSort" :list="tabs"></home-tag-sort>
   </view>
 </template>
 
@@ -70,15 +49,16 @@
 import { HOME_TOP_LIST } from "@/common/enums.js";
 import SwiperSearch from "@/components/swiper-search";
 import MescrollItem from "./components/home-mescroll-swiper-item.vue";
+import HomeTagSort from "./components/home-tag-sort.vue";
 
 export default {
   components: {
+    HomeTagSort,
     SwiperSearch,
     MescrollItem,
   },
   data() {
     return {
-      showAllTabs: false,
       height: "400px", // 需要固定swiper的高度
       tabs: HOME_TOP_LIST.properties,
       tabIndex: 0, // 当前tab的下标
@@ -90,7 +70,21 @@ export default {
       ],
     };
   },
+  mounted() {
+    uni.getLocation({
+      type: "wgs84",
+      geocode: true,
+      success: function (res) {
+        console.log(res);
+      },
+    });
+  },
   methods: {
+    goLocation() {
+      uni.$u.route({
+        url: "/pages/home/home-location",
+      });
+    },
     goSearch(current) {
       uni.$u.route({
         url: "/pages/home/home-search",
@@ -133,23 +127,5 @@ export default {
   background-color: $uni-bg-color;
   display: flex;
   flex-direction: column;
-  .popupTag {
-    .tagBox {
-      padding: 40rpx 20rpx 20rpx;
-      background-color: $uni-bg-color-grey;
-      .tagTitle {
-        margin: 20rpx 0 40rpx;
-      }
-      .tag {
-        width: fit-content;
-        display: inline-block;
-        margin: 0 10rpx 16rpx;
-      }
-    }
-    .tagBtn {
-      width: 50%;
-      margin: 20rpx auto;
-    }
-  }
 }
 </style>

@@ -53,14 +53,14 @@ import uView from "uview-ui";
 Vue.use(uView);
 uni.$u.config.unit = "rpx";
 
-// 发布界面跳转
-uni.onTabBarMidButtonTap(() => {
-  uni.$u.route({
-    url: "/pages/publish/publish",
-    animationType: "slide-in-bottom",
-    animationDuration: 2000,
-  });
-});
+// 中心按钮跳转
+// uni.onTabBarMidButtonTap(() => {
+//   uni.$u.route({
+//     url: "/pages/publish/publish",
+//     animationType: "slide-in-bottom",
+//     animationDuration: 2000,
+//   });
+// });
 
 // 注册全局组件
 import MescrollBody from "@/components/mescroll-uni/mescroll-body.vue";

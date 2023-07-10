@@ -6,9 +6,9 @@
         <view
           slot="right"
           style="align-self: center; padding: 16rpx"
-          @tap="goMsg"
+          @tap="goPublish"
         >
-          <u-icon name="chat" size="50" bold></u-icon>
+          <u-icon name="plus" size="40" bold></u-icon>
         </view>
       </me-tabs>
       <filter-box></filter-box>
@@ -48,9 +48,9 @@ export default {
     };
   },
   methods: {
-    goMsg() {
+    goPublish() {
       uni.$u.route({
-        url: "/pages/message/message",
+        url: "/pages/publish/publish",
       });
     },
     // 轮播菜单

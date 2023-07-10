@@ -1,29 +1,33 @@
 <template>
   <view class="swiper-search">
-    <u-icon
-      name="search"
-      :color="iconColor"
-      :size="iconSize"
-      class="searchIcon"
-    ></u-icon>
-    <swiper
-      :current="current"
-      :circular="circular"
-      :vertical="vertical"
-      :autoplay="autoplay"
-      :interval="interval"
-      :duration="duration"
-      class="swiperBox"
-      @click="click"
-    >
-      <swiper-item
-        v-for="(item, index) in list"
-        :key="index"
-        class="swiperItem"
+    <slot name="left"></slot>
+    <view class="searchBox">
+      <u-icon
+        name="search"
+        :color="iconColor"
+        :size="iconSize"
+        class="searchIcon"
+      ></u-icon>
+      <swiper
+        :current="current"
+        :circular="circular"
+        :vertical="vertical"
+        :autoplay="autoplay"
+        :interval="interval"
+        :duration="duration"
+        class="swiperBox"
+        @click="click"
       >
-        <view>{{ item[keyName] }}</view>
-      </swiper-item>
-    </swiper>
+        <swiper-item
+          v-for="(item, index) in list"
+          :key="index"
+          class="swiperItem"
+        >
+          <view>{{ item[keyName] }}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <slot name="right"></slot>
   </view>
 </template>
 
@@ -83,21 +87,25 @@ export default {
 <style lang="scss" scoped>
 .swiper-search {
   display: flex;
-  height: 40rpx;
-  margin: 20rpx 40rpx;
-  padding: 12rpx 24rpx;
-  border: 1px solid $uni-border-color;
-  border-radius: 40rpx;
-  .searchIcon {
-    margin-right: 18rpx;
-  }
-  .swiperBox {
-    width: 100%;
-    height: 100%;
+  .searchBox {
     flex: 1;
-    .swiperItem {
-      color: $uni-text-color-placeholder;
-      font-size: $uni-font-size-base;
+    display: flex;
+    height: 40rpx;
+    margin: 20rpx 16rpx;
+    padding: 12rpx 24rpx;
+    border: 1px solid $uni-border-color;
+    border-radius: 40rpx;
+    .searchIcon {
+      margin-right: 18rpx;
+    }
+    .swiperBox {
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      .swiperItem {
+        color: $uni-text-color-placeholder;
+        font-size: $uni-font-size-base;
+      }
     }
   }
 }

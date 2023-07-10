@@ -1,7 +1,7 @@
 {
-    "name" : "i-steel-app",
-    "appid" : "",
-    "description" : "",
+    "name" : "爱废钢",
+    "appid" : "__UNI__95758DE",
+    "description" : "i-steel-app",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -11,14 +11,18 @@
         "nvueStyleCompiler" : "uni-app",
         "compilerVersion" : 3,
         "splashscreen" : {
-            "alwaysShowBeforeRender" : true,
+            "alwaysShowBeforeRender" : false,
             "waiting" : true,
             "autoclose" : true,
             "delay" : 0
         },
         /* 模块配置 */
         "modules" : {
-            "Maps" : {}
+            "Camera" : {},
+            "Geolocation" : {},
+            "VideoPlayer" : {},
+            "Payment" : {},
+            "Share" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -40,13 +44,60 @@
                     "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "获取您的相册，用于您的头像",
+                    "NSCameraUsageDescription" : "获取您的相机，用于任务的图片上传",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "获取您的地理位置，用于首页定位",
+                    "NSMicrophoneUsageDescription" : "获取您的麦克风，用于播放文章"
+                }
+            },
             /* SDK配置 */
             "sdkConfigs" : {
-                "maps" : {}
+                "maps" : {},
+                "geolocation" : {
+                    "system" : {
+                        "__platform__" : [ "ios", "android" ]
+                    }
+                },
+                "share" : {},
+                "payment" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
             }
         }
     },

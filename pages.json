@@ -13,6 +13,13 @@
       }
     },
     {
+      "path": "pages/home/home-location",
+      "style": {
+        "navigationBarTitleText": "定位",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/home/home-search",
       "style": {
         "navigationBarTitleText": "首页-搜索",
@@ -126,15 +133,15 @@
         "selectedIconPath": "static/img/tabbar/mine_active.svg",
         "text": "我的"
       }
-    ],
-    "midButton": {
-      "width": "70px",
-      "height": "45px",
-      "iconPath": "static/img/tabbar/publish.png",
-      "iconWidth": "26px",
-      "backgroundImage": "",
-      "text": "发布"
-    }
+    ]
+    // "midButton": {
+    //   "width": "70px",
+    //   "height": "45px",
+    //   "iconPath": "static/img/tabbar/publish.png",
+    //   "iconWidth": "26px",
+    //   "backgroundImage": "",
+    //   "text": "发布"
+    // }
   },
   "uniIdRouter": {}
 }
