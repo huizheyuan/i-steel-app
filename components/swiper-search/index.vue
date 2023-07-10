@@ -87,6 +87,7 @@ export default {
 <style lang="scss" scoped>
 .swiper-search {
   display: flex;
+  align-items: flex-start;
   .searchBox {
     flex: 1;
     display: flex;

@@ -15,7 +15,7 @@
     @up="upCallback"
     @emptyclick="emptyClick"
   >
-    <home-focus :list="goods"></home-focus>
+    <home-focus :list="goods" :index="index"></home-focus>
   </mescroll-uni>
 </template>
 

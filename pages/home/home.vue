@@ -7,18 +7,23 @@
         iconColor="#3c9cff"
         @click="goSearch"
       >
-        <view
-          slot="left"
-          style="align-self: center; padding: 16rpx; display: flex"
-        >
-          <u-icon name="star" size="45" bold></u-icon>
-          <u-icon name="map" size="45" bold @tap="goLocation"></u-icon>
+        <view slot="left" @tap="goLocation" class="locationBox">
+          <text class="bold">西安</text>
+          <view class="weather">
+            <u-icon
+              name="map"
+              size="20"
+              bold
+              style="margin-right: 8rpx"
+            ></u-icon>
+            <text>晴 42°</text>
+          </view>
         </view>
       </swiper-search>
       <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
         <view
           slot="right"
-          style="align-self: center; padding: 16rpx"
+          style="padding: 16rpx"
           @tap="$refs.HomeTagSort.load()"
         >
           <u-icon name="list" size="50" bold></u-icon>
@@ -127,5 +132,17 @@ export default {
   background-color: $uni-bg-color;
   display: flex;
   flex-direction: column;
+
+  .locationBox {
+    padding: 16rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: $uni-font-size-lg;
+    .weather {
+      display: flex;
+      font-size: $uni-font-size-sm;
+    }
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <view>
     <u-swiper
+      v-show="index === 0"
       :list="adList"
       keyName="url"
       showTitle
@@ -32,6 +33,12 @@
 <script>
 export default {
   props: {
+    index: {
+      type: Number,
+      default() {
+        return 0;
+      },
+    },
     list: {
       type: Array,
       default() {

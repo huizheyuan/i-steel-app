@@ -5,7 +5,14 @@
     :class="{ 'tabs-fixed': fixed }"
     :style="{ height: tabHeightVal }"
   >
-    <view style="height: 100%; display: flex; flex-direction: row">
+    <view
+      style="
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      "
+    >
       <slot name="left"></slot>
       <view style="flex: 1; overflow: auto hidden">
         <scroll-view
