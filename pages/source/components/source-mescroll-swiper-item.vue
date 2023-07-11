@@ -16,12 +16,6 @@
     @emptyclick="emptyClick"
   >
     <!-- 数据列表 -->
-    <view style="height: 400px; background-color: aliceblue">哈卡就</view>
-    <view style="height: 400px">哈卡就</view>
-    <view style="height: 400px">哈卡就</view>
-    <view style="height: 400px">哈卡就</view>
-    <view style="height: 400px">哈卡就</view>
-    <view style="height: 400px">哈卡就</view>
   </mescroll-uni>
 </template>
 

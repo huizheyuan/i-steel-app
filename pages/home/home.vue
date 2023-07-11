@@ -55,6 +55,7 @@ import { HOME_TOP_LIST } from "@/common/enums.js";
 import SwiperSearch from "@/components/swiper-search";
 import MescrollItem from "./components/home-mescroll-swiper-item.vue";
 import HomeTagSort from "./components/home-tag-sort.vue";
+import { getWeather } from "@/api/basic/weather";
 
 export default {
   components: {
@@ -76,15 +77,21 @@ export default {
     };
   },
   mounted() {
-    uni.getLocation({
-      type: "wgs84",
-      geocode: true,
-      success: function (res) {
-        console.log(res);
-      },
-    });
+    this.getWeather();
   },
   methods: {
+    getWeather() {
+      uni.getLocation({
+        type: "wgs84",
+        geocode: true,
+        success: function (res) {
+          console.log(res);
+        },
+      });
+      getWeather().then((res) => {
+        console.log(res);
+      });
+    },
     goLocation() {
       uni.$u.route({
         url: "/pages/home/home-location",
@@ -128,6 +135,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-wrap {
+  padding-top: var(--status-bar-height);
   height: 100%;
   background-color: $uni-bg-color;
   display: flex;

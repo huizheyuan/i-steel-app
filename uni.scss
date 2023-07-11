@@ -47,6 +47,7 @@ $uni-border-color: #c8c7cc;
 $uni-font-size-sm: 12px;
 $uni-font-size-base: 14px;
 $uni-font-size-lg: 16px;
+$uni-font-size-lgx: 18px;
 
 /* 图片尺寸 */
 $uni-img-size-sm: 20px;
@@ -100,4 +101,11 @@ $uni-font-size-paragraph: 15px;
 }
 .u-input {
   background-color: transparent !important;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }

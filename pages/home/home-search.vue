@@ -1,27 +1,29 @@
 <template>
-  <mescroll-body
-    ref="mescrollRef"
-    @init="mescrollInit"
-    @down="downCallback"
-    :up="upOption"
-    @up="upCallback"
-  >
-    <u-search
-      v-model="curWord"
-      :showAction="false"
-      bgColor="#ffffff"
-      borderColor="#c8c7cc"
-      :searchIconSize="40"
-      searchIconColor="#3c9cff"
-      color="#333"
-      placeholderColor="#808080"
-      margin="30rpx"
-      height="64"
-      placeholder="请输入搜索关键词"
-      @change="inputWord"
-    ></u-search>
-    <!-- <good-list :list="goods"></good-list> -->
-  </mescroll-body>
+  <view class="home-search">
+    <mescroll-body
+      ref="mescrollRef"
+      @init="mescrollInit"
+      @down="downCallback"
+      :up="upOption"
+      @up="upCallback"
+    >
+      <u-search
+        v-model="curWord"
+        :showAction="false"
+        bgColor="#ffffff"
+        borderColor="#c8c7cc"
+        :searchIconSize="40"
+        searchIconColor="#3c9cff"
+        color="#333"
+        placeholderColor="#808080"
+        margin="30rpx"
+        height="64"
+        placeholder="请输入搜索关键词"
+        @change="inputWord"
+      ></u-search>
+      <!-- <good-list :list="goods"></good-list> -->
+    </mescroll-body>
+  </view>
 </template>
 
 <script>
@@ -87,4 +89,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home-search {
+  padding-top: var(--status-bar-height);
+  height: 100%;
+  background-color: $uni-bg-color;
+  display: flex;
+  flex-direction: column;
+}
+</style>

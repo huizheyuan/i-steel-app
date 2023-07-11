@@ -4,18 +4,10 @@
       <text>定位：</text>
       <u-tag :text="locationName" icon="map" plain class="tag"> </u-tag>
     </view>
-    <u-index-list :index-list="indexList" class="listBox">
-      <view v-for="(item, index) in locationList" :key="index">
-        <!-- #ifdef APP-NVUE -->
-        <u-index-anchor
-          :text="indexList[index]"
-          :size="20"
-          height="60"
-          bgColor="#ffffff"
-        ></u-index-anchor>
-        <!-- #endif -->
-        <u-index-item>
-          <!-- #ifndef APP-NVUE -->
+    <view class="listBox">
+      <u-index-list :index-list="indexList">
+        <view v-for="(item, index) in locationList" :key="index">
+          <!-- #ifdef APP-NVUE -->
           <u-index-anchor
             :text="indexList[index]"
             :size="20"
@@ -23,50 +15,34 @@
             bgColor="#ffffff"
           ></u-index-anchor>
           <!-- #endif -->
-          <view v-for="(cell, index2) in item" :key="index2" class="listCell">
-            <view>{{ cell }}</view>
-          </view>
-        </u-index-item>
-      </view>
-    </u-index-list>
+          <u-index-item>
+            <!-- #ifndef APP-NVUE -->
+            <u-index-anchor
+              :text="indexList[index]"
+              :size="20"
+              height="60"
+              bgColor="#ffffff"
+            ></u-index-anchor>
+            <!-- #endif -->
+            <view v-for="(cell, index2) in item" :key="index2" class="listCell">
+              <view>{{ cell }}</view>
+            </view>
+          </u-index-item>
+        </view>
+      </u-index-list>
+    </view>
   </view>
 </template>
 
 <script>
+import { AlphabeticalIndex } from "@/common/constant.js";
 import CityList from "@/common/city.js";
 
 export default {
   data() {
     return {
       locationName: "西安",
-      indexList: [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
-      ],
+      indexList: AlphabeticalIndex,
       locationList: CityList,
     };
   },
@@ -107,6 +83,9 @@ export default {
   .listBox {
     flex: 1;
     overflow-y: scroll;
+    // /deep/.u-index-list {
+    //   height: 100%;
+    // }
 
     .listCell {
       padding: 20rpx 0;

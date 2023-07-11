@@ -1,5 +1,5 @@
 <template>
-  <view class="home-tag-sort">
+  <view class="home-tag-sort-wrap">
     <u-popup
       :show="show"
       :round="10"
@@ -50,13 +50,17 @@ export default {
     load() {
       this.show = true;
     },
-    goSort() {},
+    goSort() {
+      uni.$u.route({
+        url: "/pages/home/home-tag",
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.home-tag-sort {
+.home-tag-sort-wrap {
   .tagBox {
     padding: 40rpx 20rpx 20rpx;
     background-color: $uni-bg-color-grey;

@@ -12,6 +12,7 @@
       radius="5"
       height="300"
     ></u-swiper>
+    <home-hot></home-hot>
     <view class="good-list">
       <view
         :id="'good' + good.id"
@@ -31,7 +32,10 @@
 </template>
 
 <script>
+import HomeHot from "./home-hot.vue";
+
 export default {
+  components: { HomeHot },
   props: {
     index: {
       type: Number,

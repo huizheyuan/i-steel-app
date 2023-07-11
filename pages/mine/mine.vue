@@ -100,7 +100,7 @@ export default {
 <style lang="scss" scoped>
 .mine-wrap {
   .userBox {
-    padding: 80rpx 20rpx 60rpx;
+    padding: calc(var(--status-bar-height) + 40rpx) 20rpx 60rpx;
     background-color: $uni-color-primary;
     box-shadow: 2px 2px 10px $uni-color-primary;
     color: $uni-text-color-inverse;
