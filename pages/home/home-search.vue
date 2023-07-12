@@ -1,5 +1,5 @@
 <template>
-  <view class="home-search">
+  <view class="home-search pageBox">
     <mescroll-body
       ref="mescrollRef"
       @init="mescrollInit"
@@ -91,10 +91,6 @@ export default {
 
 <style lang="scss" scoped>
 .home-search {
-  padding-top: var(--status-bar-height);
-  height: 100%;
   background-color: $uni-bg-color;
-  display: flex;
-  flex-direction: column;
 }
 </style>

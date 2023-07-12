@@ -1,40 +1,44 @@
 <template>
   <view class="home-tag-sort-wrap">
-    <u-popup
-      :show="show"
-      :round="10"
-      mode="top"
-      closeable
-      @close="show = false"
-    >
-      <view class="tagBox">
-        <h4 class="tagTitle center">所有标签页</h4>
-        <u-tag
-          v-for="(item, index) in list"
-          :key="index"
-          :text="item.name"
-          :closable="item.closable"
-          type="info"
-          plain
-          class="tag"
+    <u-popup :show="show" :round="10" mode="top" @close="show = false">
+      <view class="popupBox">
+        <custom-navbar
+          :title="'全部标签'"
+          bgColor="#f8f8f8"
+          titleColor="#333"
+          :autoBack="false"
         >
-        </u-tag>
+          <view slot="right" @click="show = false">
+            <u-icon name="close" size="36"></u-icon>
+          </view>
+        </custom-navbar>
+        <drag-sort
+          :list.sync="list"
+          label="name"
+          :columnNum="4"
+          :columnSpace="20"
+          :rowHeight="60"
+          :rowSpace="20"
+        >
+          <view slot="title">
+            <text class="title">我的标签</text>
+            <text class="tips">编辑拖拽可调整顺序</text>
+          </view>
+        </drag-sort>
       </view>
-      <u-button
-        type="info"
-        icon="edit-pen"
-        shape="circle"
-        class="tagBtn center"
-        @click="goSort"
-      >
-        自定义排序
-      </u-button>
     </u-popup>
   </view>
 </template>
 
 <script>
+import CustomNavbar from "@/components/custom-navbar";
+import DragSort from "@/components/drag-sort";
+
 export default {
+  components: {
+    CustomNavbar,
+    DragSort,
+  },
   props: {
     list: {
       type: Array,
@@ -50,32 +54,25 @@ export default {
     load() {
       this.show = true;
     },
-    goSort() {
-      uni.$u.route({
-        url: "/pages/home/home-tag",
-      });
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .home-tag-sort-wrap {
-  .tagBox {
+  .popupBox {
+    height: 100vh;
     padding: 40rpx 20rpx 20rpx;
     background-color: $uni-bg-color-grey;
-    .tagTitle {
-      margin: 20rpx 0 40rpx;
+    .title {
+      font-size: $uni-font-size-lg;
+      color: $uni-text-color;
+      margin-right: 16rpx;
     }
-    .tag {
-      width: fit-content;
-      display: inline-block;
-      margin: 0 10rpx 16rpx;
+    .tips {
+      font-size: $uni-font-size-sm;
+      color: $uni-text-color-placeholder;
     }
-  }
-  .tagBtn {
-    width: 50%;
-    margin: 20rpx auto;
   }
 }
 </style>

@@ -15,7 +15,7 @@ const userApi = {
 const client_secret = 123456;
 const client_id = "smart-work-app";
 export function login(parameter) {
-  return uni.$u.post(
+  return uni.$u.http.post(
     userApi.Login +
       `?username=${parameter.username}&password=${encodeURIComponent(
         parameter.password
@@ -25,9 +25,9 @@ export function login(parameter) {
   );
 }
 export function loginByCode(parameter) {
-  return uni.$u.post(
+  return uni.$u.http.post(
     userApi.Login +
       `?phone=${parameter.phone}&code=${parameter.code}&grant_type=${parameter.grant_type}&client_id=${client_id}&client_secret=${client_secret}`
   );
 }
-export const eliminateCid = () => uni.$u.put(account + "/eliminate-cid");
+export const eliminateCid = () => uni.$u.http.put(account + "/eliminate-cid");

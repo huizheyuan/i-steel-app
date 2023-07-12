@@ -1,6 +1,6 @@
 <!-- 货源 -->
 <template>
-  <view class="source-wrap">
+  <view class="source-wrap pageBox">
     <view>
       <swiper-search
         :list="searchList"
@@ -101,10 +101,6 @@ export default {
 
 <style lang="scss" scoped>
 .source-wrap {
-  padding-top: var(--status-bar-height);
-  height: 100%;
   background-color: $uni-bg-color;
-  display: flex;
-  flex-direction: column;
 }
 </style>

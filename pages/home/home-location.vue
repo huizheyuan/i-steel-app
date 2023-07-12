@@ -69,11 +69,11 @@ export default {
 <style lang="scss" scoped>
 .home-location {
   height: 100%;
-  padding: 40rpx 50rpx 40rpx 32rpx;
+  padding: 0 50rpx 0 32rpx;
   display: flex;
   flex-direction: column;
   .locationBox {
-    margin: 20rpx 0 40rpx;
+    margin: 40rpx 0 20rpx;
     .tag {
       width: fit-content;
       display: inline-block;
@@ -83,10 +83,6 @@ export default {
   .listBox {
     flex: 1;
     overflow-y: scroll;
-    // /deep/.u-index-list {
-    //   height: 100%;
-    // }
-
     .listCell {
       padding: 20rpx 0;
     }

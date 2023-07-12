@@ -69,3 +69,6 @@ import MeTabs from "@/components/me-tabs/me-tabs.vue";
 Vue.component("mescroll-body", MescrollBody);
 Vue.component("mescroll-uni", MescrollUni);
 Vue.component("me-tabs", MeTabs);
+
+import httpInterceptor from "@/api/http.interceptor.js";
+Vue.use(httpInterceptor, app);

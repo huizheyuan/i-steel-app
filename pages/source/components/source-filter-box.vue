@@ -1,7 +1,7 @@
 <template>
-  <view class="source-filter-box">
+  <view class="source-filter-box-wrap">
     <u-row justify="space-between" class="rowBox">
-      <u-col span="2" class="colBox" @click="showAddr = true">
+      <u-col span="2" class="colBox">
         <text class="colText">区域</text>
         <u-icon name="arrow-down-fill" color="#606266" size="20"></u-icon>
       </u-col>
@@ -9,45 +9,27 @@
         span="2"
         justify="end"
         class="colBox line"
-        @click="showFilter = true"
+        @click="$refs.FilterMain.load()"
       >
         <text class="colText">筛选</text>
         <u-icon :name="iconFilter" size="30"></u-icon>
       </u-col>
     </u-row>
-    <u-popup
-      :show="showFilter"
-      :round="10"
-      closeable
-      @close="showFilter = false"
-    >
-      <view>
-        <text>Filter TODO</text>
-      </view>
-    </u-popup>
-    <u-popup
-      :show="showAddr"
-      :round="10"
-      mode="top"
-      closeable
-      @close="showAddr = false"
-    >
-      <view>
-        <text>Addr TODO</text>
-      </view>
-    </u-popup>
+    <filter-main ref="FilterMain"></filter-main>
   </view>
 </template>
 
 <script>
 import iconFilter from "@/static/img/common/filter.png";
+import FilterMain from "./source-filter-box-main.vue";
 
 export default {
+  components: {
+    FilterMain,
+  },
   data() {
     return {
       iconFilter,
-      showFilter: false,
-      showAddr: false,
     };
   },
   methods: {},
@@ -55,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.source-filter-box {
+.source-filter-box-wrap {
   padding: 20rpx 18rpx;
   .rowBox {
     .colBox {

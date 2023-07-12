@@ -1,5 +1,5 @@
 <template>
-  <view class="home-wrap">
+  <view class="home-wrap pageBox">
     <view>
       <swiper-search
         :list="searchList"
@@ -8,7 +8,9 @@
         @click="goSearch"
       >
         <view slot="left" @tap="goLocation" class="locationBox">
-          <text class="bold">西安</text>
+          <text class="bold">
+            {{ locationInfo.address ? locationInfo.address.city || "-" : "-" }}
+          </text>
           <view class="weather">
             <u-icon
               name="map"
@@ -65,6 +67,7 @@ export default {
   },
   data() {
     return {
+      locationInfo: {},
       height: "400px", // 需要固定swiper的高度
       tabs: HOME_TOP_LIST.properties,
       tabIndex: 0, // 当前tab的下标
@@ -77,19 +80,23 @@ export default {
     };
   },
   mounted() {
-    this.getWeather();
+    this.getLocation();
   },
   methods: {
-    getWeather() {
+    getLocation() {
       uni.getLocation({
-        type: "wgs84",
+        type: "gcj02",
         geocode: true,
         success: function (res) {
           console.log(res);
+          this.locationInfo = res.data;
+
+          const code = res.address.postalCode;
+          if (!code) return;
+          getWeather(code).then((weather) => {
+            console.log(weather);
+          });
         },
-      });
-      getWeather().then((res) => {
-        console.log(res);
       });
     },
     goLocation() {
@@ -135,12 +142,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-wrap {
-  padding-top: var(--status-bar-height);
-  height: 100%;
   background-color: $uni-bg-color;
-  display: flex;
-  flex-direction: column;
-
   .locationBox {
     padding: 16rpx;
     display: flex;

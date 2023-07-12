@@ -1,19 +1,8 @@
 <template>
-  <view class="source-detail-wrap pageBox">
-    <custom-navbar :title="sourceData.title || '货源详情'"> </custom-navbar>
+  <view class="information-detail-wrap pageBox">
+    <custom-navbar :title="infoData.title || '资讯详情'"> </custom-navbar>
     <view class="content">
-      <u-swiper
-        :list="sourceData.imgList"
-        keyName="url"
-        showTitle
-        :autoplay="false"
-        indicator
-        circular
-        interval="3000"
-        radius="5"
-        height="460"
-      ></u-swiper>
-      <!-- TODO: 详情信息 -->
+      <text v-html="infoData.content"></text>
     </view>
     <view class="footer">
       <u-icon name="chat" color="#606266" size="40" class="icon"></u-icon>
@@ -37,20 +26,19 @@ export default {
   },
   data() {
     return {
-      sourceData: {
+      infoData: {
         title: "",
         imgList: [],
+        content: "1.资讯详情111111。<br />2.资讯详情2222。",
       },
     };
   },
-  methods: {
-    rightClick() {},
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.source-detail-wrap {
+.information-detail-wrap {
   background-color: $uni-bg-color;
   .content {
     flex: 1;
