@@ -81,10 +81,33 @@
       }
     },
     {
-      "path": "pages/mine/2nd/user",
+      "path": "pages/mine/mine-user",
       "style": {
-        "navigationBarTitleText": "用户信息",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "个人信息"
+      }
+    },
+    {
+      "path": "pages/mine/mine-focus",
+      "style": {
+        "navigationBarTitleText": "关注"
+      }
+    },
+    {
+      "path": "pages/mine/mine-collect",
+      "style": {
+        "navigationBarTitleText": "收藏"
+      }
+    },
+    {
+      "path": "pages/mine/mine-order",
+      "style": {
+        "navigationBarTitleText": "订单"
+      }
+    },
+    {
+      "path": "pages/mine/mine-publish",
+      "style": {
+        "navigationBarTitleText": "发布"
       }
     },
     {
@@ -124,26 +147,26 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "iconPath": "static/img/tabbar/home.svg",
-        "selectedIconPath": "static/img/tabbar/home_active.svg",
+        "iconPath": "static/img/tabbar/home.png",
+        "selectedIconPath": "static/img/tabbar/home_active.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/source/source",
-        "iconPath": "static/img/tabbar/source.svg",
-        "selectedIconPath": "static/img/tabbar/source_active.svg",
+        "iconPath": "static/img/tabbar/source.png",
+        "selectedIconPath": "static/img/tabbar/source_active.png",
         "text": "货源"
       },
       {
         "pagePath": "pages/price/price",
-        "iconPath": "static/img/tabbar/price.svg",
-        "selectedIconPath": "static/img/tabbar/price_active.svg",
+        "iconPath": "static/img/tabbar/price.png",
+        "selectedIconPath": "static/img/tabbar/price_active.png",
         "text": "行情"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "static/img/tabbar/mine.svg",
-        "selectedIconPath": "static/img/tabbar/mine_active.svg",
+        "iconPath": "static/img/tabbar/mine.png",
+        "selectedIconPath": "static/img/tabbar/mine_active.png",
         "text": "我的"
       }
     ]

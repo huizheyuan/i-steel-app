@@ -2,10 +2,8 @@
  * API接口配置文件
  */
 const prefix = "api";
-// const baseApiUrl = 'http://10.1.1.8/service';
-// const baseApiUrl = "http://10.1.1.203/service";
-const baseApiUrl = "http://192.168.1.118:10000";
-// const baseApiUrl = "https://www.shxjd.net/service";
+const baseApiUrl = "http://10.1.1.203/service";
+// const baseApiUrl = "https://www.xxxxx.net/service";
 
 module.exports = {
   baseApiUrl,

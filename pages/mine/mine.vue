@@ -55,42 +55,50 @@
 </template>
 
 <script>
+import userAvatar from "@/static/img/temp/user.png";
+
 export default {
   data() {
     return {
       userInfo: {
         id: "32345324523456",
-        avatar: "https://cdn.uviewui.com/uview/album/1.jpg",
+        avatar: userAvatar,
         account: "3dg2342",
         telephone: "1899999999",
         password: "123456",
-        name: "王大强",
+        name: "废钢侠",
       },
       cardList: [
-        { title: "我的发布", icon: "checkmark", path: "" },
-        { title: "我的关注", icon: "heart", path: "" },
-        { title: "我的收藏", icon: "star", path: "" },
-        { title: "我的订单", icon: "order", path: "" },
+        {
+          title: "我的发布",
+          icon: "checkmark",
+          path: "/pages/mine/mine-publish",
+        },
+        { title: "我的关注", icon: "heart", path: "/pages/mine/mine-focus" },
+        { title: "我的收藏", icon: "star", path: "/pages/mine/mine-collect" },
+        { title: "我的订单", icon: "order", path: "/pages/mine/mine-order" },
       ],
       list: [
-        { title: "浏览记录", icon: "eye", path: "/pages/mine/mine" },
-        { title: "关于软件", icon: "info-circle", path: "/pages/mine/mine" },
-        { title: "用户协议", icon: "account", path: "/pages/mine/mine" },
-        { title: "隐私政策", icon: "lock", path: "/pages/mine/mine" },
-        { title: "我的客服", icon: "kefu-ermai", path: "/pages/mine/mine" },
-        { title: "设置", icon: "kefu-ermai", path: "/pages/mine/mine" },
+        { title: "浏览记录", icon: "eye", path: "" },
+        { title: "关于软件", icon: "info-circle", path: "" },
+        { title: "用户协议", icon: "account", path: "" },
+        { title: "隐私政策", icon: "lock", path: "" },
+        { title: "我的客服", icon: "kefu-ermai", path: "" },
+        { title: "设置", icon: "kefu-ermai", path: "" },
       ],
     };
   },
   methods: {
     clickUser() {
-      uni.$u.route({ url: "/pages/mine/2nd/user" });
+      uni.$u.route({ url: "/pages/mine/mine-user" });
     },
     clickCard(index) {
       const path = this.cardList[index].path;
+      if (!path) return;
       uni.$u.route({ url: path });
     },
     clickList({ path }) {
+      if (!path) return;
       uni.$u.route({ url: path });
     },
   },

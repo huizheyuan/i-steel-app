@@ -33,6 +33,8 @@
 
 <script>
 import HomeHot from "./home-hot.vue";
+import ad1 from "@/static/img/temp/ad1.jpg";
+import ad2 from "@/static/img/temp/ad2.png";
 
 export default {
   components: { HomeHot },
@@ -54,14 +56,12 @@ export default {
     return {
       adList: [
         {
-          url: "https://cdn.uviewui.com/uview/swiper/swiper3.png",
-          title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳",
+          url: ad1,
+          title: "3J58是一种弹性合金，弹性合金是精密合金的一类",
         },
         {
-          url: "https://cdn.uviewui.com/uview/resources/video.mp4",
-          title: "昨夜星辰昨夜风，画楼西畔桂堂东",
-          poster: "https://cdn.uviewui.com/uview/swiper/swiper1.png",
-          type: "video",
+          url: ad2,
+          title: "禄浩不锈钢：GH3536高温合金的性能及应用领域",
         },
       ],
     };

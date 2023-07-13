@@ -6,14 +6,18 @@
     </view>
     <swiper
       class="swiperBox"
-      @click="goDetail"
       :autoplay="true"
       :circular="true"
       :vertical="true"
       :interval="6000"
       :duration="500"
     >
-      <swiper-item class="swiperItem" v-for="(item, i) in list" :key="i">
+      <swiper-item
+        class="swiperItem"
+        v-for="(item, i) in list"
+        :key="i"
+        @click="goDetail(item)"
+      >
         <view class="title ellipsis">{{ item.title }}</view>
         <view class="content">{{ item.content }}</view>
       </swiper-item>
@@ -28,28 +32,31 @@ export default {
       list: [
         {
           id: "111",
-          title: "志丹县柳沟段乡村道路山体滑坡",
+          title: "禄浩金属集团解析：镍基合金有什么用？",
           content:
-            "志丹县柳沟段乡村道路山体滑坡，导致延吴段高压架线118顺刘线14号杆距断崖处不足2米",
+            "镍基合金一般以Ni含量超过30wt%之合金称之，常见产品之Ni含量都超过50wt%， 由于具有超群的高温机械强度与耐蚀性质，与铁基和钴基合金合称为超合金(Superalloy)，一般是应用在540℃以上的高温环境，并依其使用场合，选用不同合金设计，多用于特殊耐蚀环境、高温腐蚀环境、需具备高温机械强度之设备。常应用于航天、能源、石化工业或特殊电子/光电等领域。",
         },
         {
           id: "112",
-          title: "1kV及以下配线工程施工与验收规范（GB 50575-2010）	",
+          title: "钢材市场需求强劲，还是可以谨慎乐观的，因为中国是制造业大国",
           content:
-            "根据住房和城乡建设部《关于印发(2008年工程建设标准规范制定、修订计划（第二批）〉的通知》（建标(2008)105号）的要求，规范 编制组经广泛调查研究，认真总结实践经验，参考有关国际标准，并在广泛征求意见的基础上，制定本规范。",
+            "周三，连续上涨两天的钢铁原材料期货价格，停住了上涨的步伐。截至下午收盘，铁矿石期货主力合约下跌1.73%，报收680元；焦煤期货价格下跌2.04%，报收1822.5元；焦炭期货价格下跌1.8%，报收2430.5元。螺纹钢期货走势继续弱于热轧板卷，螺纹钢收盘下跌，热轧板卷收盘上涨，分别报收3673元和3761元。",
         },
         {
           id: "113",
-          title: "3.6KV~40.5KV交流金属封闭开关设备和控制设备（GB 3906-2006）",
+          title: "10月国内外有关钢材及能源的最新资讯",
           content:
-            "本标准修改采用IEC 62271-200: 2003《额定电压1 kV 以上52 kV 及以下交流金属封闭开关设备和控制设备》（第一版、即IEC 60298 的第四版）。",
+            "从美国和日本钢铁工业的发展历程看，其粗钢产量于1973年同时达到峰值（美国：1.368亿吨，日本：1.19亿吨）。此后，美国粗钢产量在1982年跌破1亿吨，再之后年均粗钢产量仅为8800万吨，距离高峰值降幅高达36%；日本粗钢产量则在峰值过后保持年均1.05亿吨的粗钢产量，距离高峰值下降12%。",
         },
       ],
     };
   },
   methods: {
-    goDetail(a, b) {
-      console.log(a, b);
+    goDetail(item) {
+      //   uni.$u.route({
+      //     url: "/pages/information/information-detail",
+      //     params: { id: item.id },
+      //   });
     },
   },
 };
@@ -57,16 +64,17 @@ export default {
 
 <style lang="scss" scoped>
 .home-hot-wrap {
-  height: 280rpx;
-  margin: 20rpx;
+  height: 260rpx;
+  margin: 24rpx 20rpx;
   display: flex;
   flex-direction: column;
 
   .titleBox {
     display: flex;
+    align-items: center;
     font-weight: bold;
     font-size: $uni-font-size-lgx;
-    margin-bottom: 16rpx;
+    margin: 20rpx 0;
     color: #c81522;
   }
 
@@ -77,13 +85,14 @@ export default {
       .title {
         font-weight: bold;
         font-size: $uni-font-size-lg;
-        margin-bottom: 10rpx;
+        color: $uni-text-color;
+        margin-bottom: 16rpx;
       }
       .content {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
       }
     }

@@ -9,7 +9,7 @@
       >
         <view slot="left" @tap="goLocation" class="locationBox">
           <text class="bold">
-            {{ locationInfo.address ? locationInfo.address.city || "-" : "-" }}
+            {{ locationInfo.city || "-" }}
           </text>
           <view class="weather">
             <u-icon
@@ -18,7 +18,13 @@
               bold
               style="margin-right: 8rpx"
             ></u-icon>
-            <text>晴 42°</text>
+            <text>
+              {{
+                `${weatherInfo.weather || "-"} ${
+                  weatherInfo.temperature || "-"
+                }°`
+              }}
+            </text>
           </view>
         </view>
       </swiper-search>
@@ -57,7 +63,7 @@ import { HOME_TOP_LIST } from "@/common/enums.js";
 import SwiperSearch from "@/components/swiper-search";
 import MescrollItem from "./components/home-mescroll-swiper-item.vue";
 import HomeTagSort from "./components/home-tag-sort.vue";
-import { getWeather } from "@/api/basic/weather";
+import { getGeocode, getWeather } from "@/api/basic/weather";
 
 export default {
   components: {
@@ -68,6 +74,7 @@ export default {
   data() {
     return {
       locationInfo: {},
+      weatherInfo: {},
       height: "400px", // 需要固定swiper的高度
       tabs: HOME_TOP_LIST.properties,
       tabIndex: 0, // 当前tab的下标
@@ -88,13 +95,18 @@ export default {
         type: "gcj02",
         geocode: true,
         success: function (res) {
-          console.log(res);
-          this.locationInfo = res.data;
+          this.locationInfo = res.address || {};
 
-          const code = res.address.postalCode;
-          if (!code) return;
-          getWeather(code).then((weather) => {
-            console.log(weather);
+          if (!res || !res.longitude || !res.latitude) return;
+          getGeocode(`${res.longitude},${res.latitude}`).then((geocode) => {
+            const code = geocode
+              ? geocode.regeocode.addressComponent.adcode
+              : null;
+
+            if (!code) return;
+            getWeather(code).then((weather) => {
+              this.weatherInfo = weather.lives[0] || {};
+            });
           });
         },
       });
@@ -110,7 +122,6 @@ export default {
         params: this.searchList[current],
       });
     },
-    goSort() {},
     // 轮播菜单
     swiperChange(e) {
       this.tabIndex = e.detail.current;
@@ -143,6 +154,7 @@ export default {
 <style lang="scss" scoped>
 .home-wrap {
   background-color: $uni-bg-color;
+  padding: 0 20rpx;
   .locationBox {
     padding: 16rpx;
     display: flex;

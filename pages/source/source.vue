@@ -102,5 +102,6 @@ export default {
 <style lang="scss" scoped>
 .source-wrap {
   background-color: $uni-bg-color;
+  padding: 0 20rpx;
 }
 </style>
