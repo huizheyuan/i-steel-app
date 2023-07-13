@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-hot-wrap {
-  height: 260rpx;
+  height: 290rpx;
   margin: 24rpx 20rpx;
   display: flex;
   flex-direction: column;

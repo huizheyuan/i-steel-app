@@ -92,7 +92,7 @@ export default {
     //点击空布局按钮的回调
     emptyClick() {
       uni.showToast({
-        title: "点击了按钮,具体逻辑自行实现",
+        title: "点击了按钮",
       });
     },
   },

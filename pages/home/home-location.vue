@@ -41,7 +41,7 @@ import CityList from "@/common/city.js";
 export default {
   data() {
     return {
-      locationName: "西安",
+      locationName: "北京",
       indexList: AlphabeticalIndex,
       locationList: CityList,
     };
@@ -51,7 +51,7 @@ export default {
       type: "wgs84",
       geocode: true,
       success: function (res) {
-        this.locationName = "西安";
+        this.locationName = "北京";
         console.log(res);
         console.log("当前位置的经度：" + res.longitude);
         console.log("当前位置的纬度：" + res.latitude);

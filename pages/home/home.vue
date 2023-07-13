@@ -9,7 +9,7 @@
       >
         <view slot="left" @tap="goLocation" class="locationBox">
           <text class="bold">
-            {{ locationInfo.city || "-" }}
+            {{ locationInfo.city || "北京" }}
           </text>
           <view class="weather">
             <u-icon
@@ -20,8 +20,8 @@
             ></u-icon>
             <text>
               {{
-                `${weatherInfo.weather || "-"} ${
-                  weatherInfo.temperature || "-"
+                `${weatherInfo.weather || "晴"} ${
+                  weatherInfo.temperature || "40"
                 }°`
               }}
             </text>

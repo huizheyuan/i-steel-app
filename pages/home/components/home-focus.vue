@@ -1,18 +1,19 @@
 <template>
   <view>
-    <u-swiper
-      v-show="index === 0"
-      :list="adList"
-      keyName="url"
-      showTitle
-      autoplay
-      indicator
-      circular
-      interval="3000"
-      radius="5"
-      height="300"
-    ></u-swiper>
-    <home-hot></home-hot>
+    <view v-if="index === 0">
+      <u-swiper
+        :list="adList"
+        keyName="url"
+        showTitle
+        autoplay
+        indicator
+        circular
+        interval="3000"
+        radius="5"
+        height="300"
+      ></u-swiper>
+      <home-hot></home-hot>
+    </view>
     <view class="good-list">
       <view
         :id="'good' + good.id"

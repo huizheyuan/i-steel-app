@@ -32,7 +32,7 @@ export default {
         account: "3dg2342",
         telephone: "1899999999",
         password: "123456",
-        name: "废钢侠",
+        name: "废钢侠001",
       },
     };
   },
