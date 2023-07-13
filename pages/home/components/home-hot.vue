@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-hot-wrap {
-  height: 290rpx;
+  height: 280rpx;
   margin: 24rpx 20rpx;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,6 @@ export default {
 
   .swiperBox {
     flex: 1;
-    padding: 10rpx 20rpx;
     .swiperItem {
       .title {
         font-weight: bold;
@@ -89,10 +88,11 @@ export default {
         margin-bottom: 16rpx;
       }
       .content {
+        font-size: $uni-font-size-base;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
       }
     }

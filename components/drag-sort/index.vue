@@ -426,7 +426,7 @@ export default {
 .drag-sort-wrap {
   padding: 20rpx 20rpx;
   .operateBox {
-    margin-bottom: 20rpx;
+    margin: 20rpx 0;
     display: flex;
     justify-content: center;
     align-items: center;

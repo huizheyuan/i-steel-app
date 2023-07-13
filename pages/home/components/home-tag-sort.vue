@@ -60,8 +60,9 @@ export default {
 
 <style lang="scss" scoped>
 .home-tag-sort-wrap {
+  margin-top: var(--status-bar-height);
   .popupBox {
-    height: 100vh;
+    height: 80vh;
     padding: 40rpx 20rpx 20rpx;
     background-color: $uni-bg-color-grey;
     .title {

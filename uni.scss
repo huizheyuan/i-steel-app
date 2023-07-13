@@ -104,13 +104,13 @@ $uni-font-size-paragraph: 15px;
 }
 
 .ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 .pageBox {
-  padding-top: var(--status-bar-height);
+  margin-top: var(--status-bar-height);
   height: 100%;
   display: flex;
   flex-direction: column;
