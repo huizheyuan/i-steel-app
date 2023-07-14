@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     load() {
-      this.show = true;
+      //   this.show = true;
     },
   },
 };

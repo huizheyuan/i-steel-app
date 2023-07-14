@@ -86,7 +86,7 @@ export default {
   },
   onLoad() {
     // 需要固定swiper的高度
-    this.height = uni.getSystemInfoSync().windowHeight + "px";
+    this.height = uni.getSystemInfoSync().windowHeight - 160 + "px";
   },
   onShow() {
     // 返回刷新: https://www.mescroll.com/uni.html#note 第二点

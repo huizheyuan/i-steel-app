@@ -312,8 +312,8 @@ export default {
 
 <style lang="scss" scoped>
 .publish-wrap {
+  height: 100vh;
   background-color: $uni-bg-color-form;
-  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 20rpx;
