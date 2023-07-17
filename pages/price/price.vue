@@ -1,8 +1,6 @@
 <!-- 行情 -->
 <template>
-  <view class="price-wrap pageBox">
-    <!-- 行情 -->
-  </view>
+  <view class="price-wrap pageBox"> </view>
 </template>
 
 <style lang="scss" scoped>

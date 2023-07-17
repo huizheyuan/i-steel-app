@@ -1,19 +1,6 @@
+<!-- 首页-关注 -->
 <template>
   <view>
-    <view v-if="index === 0">
-      <u-swiper
-        :list="adList"
-        keyName="url"
-        showTitle
-        autoplay
-        indicator
-        circular
-        interval="3000"
-        radius="5"
-        height="300"
-      ></u-swiper>
-      <home-hot></home-hot>
-    </view>
     <view class="good-list">
       <view
         :id="'good' + good.id"
@@ -33,12 +20,7 @@
 </template>
 
 <script>
-import HomeHot from "./home-hot.vue";
-import ad1 from "@/static/img/temp/ad1.jpg";
-import ad2 from "@/static/img/temp/ad2.png";
-
 export default {
-  components: { HomeHot },
   props: {
     index: {
       type: Number,
@@ -54,18 +36,7 @@ export default {
     },
   },
   data() {
-    return {
-      adList: [
-        {
-          url: ad1,
-          title: "3J58是一种弹性合金，弹性合金是精密合金的一类",
-        },
-        {
-          url: ad2,
-          title: "禄浩不锈钢：GH3536高温合金的性能及应用领域",
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>

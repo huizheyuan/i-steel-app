@@ -1,33 +1,12 @@
 <template>
   <view class="home-wrap pageBox">
     <view>
-      <swiper-search
+      <!-- <swiper-search
         :list="searchList"
         :iconSize="40"
         iconColor="#3c9cff"
         @click="goSearch"
-      >
-        <view slot="left" @tap="goLocation" class="locationBox">
-          <text class="bold">
-            {{ locationInfo.city || "-" }}
-          </text>
-          <view class="weather">
-            <u-icon
-              name="map"
-              size="20"
-              bold
-              style="margin-right: 8rpx"
-            ></u-icon>
-            <text>
-              {{
-                `${weatherInfo.weather || "-"} ${
-                  weatherInfo.temperature || "-"
-                }°`
-              }}
-            </text>
-          </view>
-        </view>
-      </swiper-search>
+      ></swiper-search> -->
       <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
         <view
           slot="right"
@@ -59,7 +38,7 @@
 </template>
 
 <script>
-import { HOME_TOP_LIST } from "@/common/enums.js";
+import { Variety_List } from "@/common/enums.js";
 import SwiperSearch from "@/components/swiper-search";
 import MescrollItem from "./components/home-mescroll-swiper-item.vue";
 import HomeTagSort from "./components/home-tag-sort.vue";
@@ -76,7 +55,7 @@ export default {
       locationInfo: {},
       weatherInfo: {},
       height: "400px", // 需要固定swiper的高度
-      tabs: HOME_TOP_LIST.properties,
+      tabs: Variety_List.propertiesHome,
       tabIndex: 0, // 当前tab的下标
       searchList: [
         { id: "1111", title: "日照香炉生紫烟" },
@@ -109,11 +88,6 @@ export default {
             });
           });
         },
-      });
-    },
-    goLocation() {
-      uni.$u.route({
-        url: "/pages/home/home-location",
       });
     },
     goSearch(current) {
