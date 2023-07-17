@@ -1,7 +1,26 @@
 <!-- 热点视频 -->
 <template>
-  <view>
-    <filter-box></filter-box>
+  <view class="video-hot-wrap pageBox">
+    <custom-navbar :title="pageTitle || '热点视频'">
+      <view slot="right" @click="add">
+        <u-icon name="plus" size="36" color="#ffffff"></u-icon>
+      </view>
+    </custom-navbar>
+    <swiper-search
+      :list="searchList"
+      :iconSize="40"
+      iconColor="#3c9cff"
+      @click="goSearch"
+    ></swiper-search>
+    <view class="searchTag">
+      <text
+        v-for="(item, index) in searchTagList"
+        :key="index"
+        class="searchTagItem"
+      >
+        {{ item }}
+      </text>
+    </view>
     <mescroll-body
       ref="mescrollRef"
       @init="mescrollInit"
@@ -15,22 +34,42 @@
 </template>
 
 <script>
+import SwiperSearch from "@/components/swiper-search";
+import CustomNavbar from "@/components/custom-navbar";
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import VideoList from "./components/video-list";
 import { apiNewList } from "@/api/mock";
 
 export default {
   mixins: [MescrollMixin], // 使用mixin (在main.js注册全局组件)
-  components: { VideoList },
+  components: { SwiperSearch, CustomNavbar, VideoList },
   data() {
     return {
+      pageTitle: null,
+      searchList: [
+        { id: "1", title: "视频1" },
+        { id: "2", title: "视频2" },
+      ],
+      searchTagList: ["#废钢", "#废铁"],
       downOption: {
         auto: false, //是否在初始化后,自动执行downCallback; 默认true
       },
       dataList: [],
     };
   },
+  onLoad(data) {
+    this.pageTitle = data.title;
+  },
   methods: {
+    add() {
+      uni.$u.route({ url: "/pages/video/video-add" });
+    },
+    goSearch(current) {
+      uni.$u.route({
+        url: "/pages/home/home-search",
+        params: this.searchList[current],
+      });
+    },
     /*下拉刷新的回调 */
     downCallback() {
       //联网加载数据
@@ -77,4 +116,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.video-hot-wrap {
+  background-color: $uni-bg-color;
+  .searchTag {
+    margin: 0px 24rpx;
+    padding: 0px 12rpx 52rpx;
+    overflow: scroll hidden;
+    text-wrap: nowrap;
+    font-size: $uni-font-size-base;
+    color: $uni-text-color-placeholder;
+    .searchTagItem {
+      margin: 0 10rpx;
+    }
+  }
+}
+</style>

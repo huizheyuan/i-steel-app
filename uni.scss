@@ -111,7 +111,7 @@ $uni-font-size-paragraph: 15px;
 }
 .pageBox {
   margin-top: var(--status-bar-height);
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

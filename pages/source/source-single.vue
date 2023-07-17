@@ -1,5 +1,6 @@
 <template>
   <view>
+    <custom-navbar :title="pageTitle || '货源'"> </custom-navbar>
     <filter-box></filter-box>
     <mescroll-body
       ref="mescrollRef"
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import CustomNavbar from "@/components/custom-navbar";
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import FilterBox from "./components/source-filter-box.vue";
 import SourceList from "./components/source-list";
@@ -21,14 +23,18 @@ import { apiNewList } from "@/api/mock";
 
 export default {
   mixins: [MescrollMixin], // 使用mixin (在main.js注册全局组件)
-  components: { FilterBox, SourceList },
+  components: { CustomNavbar, FilterBox, SourceList },
   data() {
     return {
+      pageTitle: null,
       downOption: {
         auto: false, //是否在初始化后,自动执行downCallback; 默认true
       },
       dataList: [],
     };
+  },
+  onLoad(data) {
+    this.pageTitle = data.title;
   },
   methods: {
     /*下拉刷新的回调 */

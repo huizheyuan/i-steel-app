@@ -1,12 +1,8 @@
 <template>
-  <view class="source-filter-box-wrap">
+  <view class="location-filter-box-wrap">
     <u-row justify="space-between" class="rowBox">
       <u-col span="4" class="colBox" @click="$refs.FilterBoxCity.load()">
-        <text class="colText">区域</text>
-        <u-icon name="arrow-down-fill" color="#606266" size="20"></u-icon>
-      </u-col>
-      <u-col span="4" class="colBox" @click="$refs.FilterBoxCity.load()">
-        <text class="colText">最新发布</text>
+        <text class="colText">城市</text>
         <u-icon name="arrow-down-fill" color="#606266" size="20"></u-icon>
       </u-col>
     </u-row>
@@ -15,7 +11,6 @@
 </template>
 
 <script>
-import iconFilter from "@/static/img/common/filter.png";
 import FilterBoxCity from "@/components/filter-box/filter-box-city.vue";
 
 export default {
@@ -23,16 +18,14 @@ export default {
     FilterBoxCity,
   },
   data() {
-    return {
-      iconFilter,
-    };
+    return {};
   },
   methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.source-filter-box-wrap {
+.location-filter-box-wrap {
   padding: 20rpx 18rpx;
   .rowBox {
     .colBox {
@@ -44,6 +37,9 @@ export default {
       .colText {
         margin-right: 8rpx;
       }
+    }
+    .line {
+      border-left: 2rpx solid $uni-text-color-placeholder;
     }
   }
 }

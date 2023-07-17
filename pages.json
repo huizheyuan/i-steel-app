@@ -13,12 +13,6 @@
       }
     },
     {
-      "path": "pages/home/home-location",
-      "style": {
-        "navigationBarTitleText": "请选择区域"
-      }
-    },
-    {
       "path": "pages/home/home-search",
       "style": {
         "navigationBarTitleText": "首页-搜索",
@@ -26,16 +20,24 @@
       }
     },
     {
-        "path": "pages/information/information",
-        "style": {
-          "navigationBarTitleText": "资讯",
-          "navigationStyle": "custom"
-        }
+      "path": "pages/location/location",
+      "style": {
+        "navigationBarTitleText": "定位",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/information/information",
+      "style": {
+        "navigationBarTitleText": "资讯",
+        "navigationStyle": "custom"
+      }
     },
     {
       "path": "pages/information/information-hot",
       "style": {
-        "navigationBarTitleText": "热点资讯"
+        "navigationBarTitleText": "热点资讯",
+        "navigationStyle": "custom"
       }
     },
     {
@@ -55,7 +57,8 @@
     {
       "path": "pages/source/source-single",
       "style": {
-        "navigationBarTitleText": "货源"
+        "navigationBarTitleText": "货源",
+        "navigationStyle": "custom"
       }
     },
     {
@@ -101,13 +104,14 @@
     {
       "path": "pages/video/video-hot",
       "style": {
-        "navigationBarTitleText": "热点视频"
+        "navigationBarTitleText": "热点视频",
+        "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/video/video-add",
       "style": {
-        "navigationBarTitleText": "新增视频"
+        "navigationBarTitleText": "发布视频"
       }
     },
     {

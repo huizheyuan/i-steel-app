@@ -1,8 +1,8 @@
 <template>
   <!-- 
-	swiper中的transfrom会使fixed失效,此时用height="100%"固定高度; 
-	swiper中无法触发mescroll-mixins.js的onPageScroll和onReachBottom方法,只能用mescroll-uni,不能用mescroll-body
-	-->
+      swiper中的transfrom会使fixed失效,此时用height="100%"固定高度; 
+      swiper中无法触发mescroll-mixins.js的onPageScroll和onReachBottom方法,只能用mescroll-uni,不能用mescroll-body
+      -->
   <!-- ref动态生成: 字节跳动小程序编辑器不支持一个页面存在相同的ref (如不考虑字节跳动小程序可固定值为 ref="mescrollRef") -->
   <mescroll-uni
     :ref="'mescrollRef' + i"
@@ -13,21 +13,20 @@
     @down="downCallback"
     :up="upOption"
     @up="upCallback"
-    @emptyclick="emptyClick"
   >
-    <source-list :dataList="dataList"></source-list>
+    <location-list :dataList="dataList"></location-list>
   </mescroll-uni>
 </template>
 
 <script>
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 import MescrollMoreItemMixin from "@/components/mescroll-uni/mixins/mescroll-more-item.js";
-import SourceList from "./source-list";
+import LocationList from "./location-list";
 import { apiSearch } from "@/api/mock";
 
 export default {
   mixins: [MescrollMixin, MescrollMoreItemMixin], // 注意此处还需使用MescrollMoreItemMixin (必须写在MescrollMixin后面)
-  components: { SourceList },
+  components: { LocationList },
   data() {
     return {
       downOption: {
@@ -88,12 +87,6 @@ export default {
           //联网失败, 结束加载
           this.mescroll.endErr();
         });
-    },
-    //点击空布局按钮的回调
-    emptyClick() {
-      uni.showToast({
-        title: "点击了按钮",
-      });
     },
   },
 };

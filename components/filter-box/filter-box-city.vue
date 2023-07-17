@@ -1,9 +1,9 @@
 <template>
-  <view class="home-tag-sort-wrap">
+  <view class="filter-box-city-wrap">
     <u-popup :show="show" :round="10" mode="top" @close="show = false">
       <view class="popupBox">
         <custom-navbar
-          :title="'全部频道'"
+          :title="'城市'"
           bgColor="#f8f8f8"
           titleColor="#333"
           :autoBack="false"
@@ -12,19 +12,6 @@
             <u-icon name="close" size="36"></u-icon>
           </view>
         </custom-navbar>
-        <drag-sort
-          :list.sync="list"
-          label="name"
-          :columnNum="4"
-          :columnSpace="20"
-          :rowHeight="60"
-          :rowSpace="20"
-        >
-          <view slot="title">
-            <text class="title">我的频道</text>
-            <text class="tips">编辑拖拽可调整顺序</text>
-          </view>
-        </drag-sort>
       </view>
     </u-popup>
   </view>
@@ -32,12 +19,10 @@
 
 <script>
 import CustomNavbar from "@/components/custom-navbar";
-import DragSort from "@/components/drag-sort";
 
 export default {
   components: {
     CustomNavbar,
-    DragSort,
   },
   props: {
     list: {
@@ -59,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-tag-sort-wrap {
+.filter-box-city-wrap {
   margin-top: var(--status-bar-height);
   .popupBox {
     height: 80vh;

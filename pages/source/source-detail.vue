@@ -43,6 +43,9 @@ export default {
       },
     };
   },
+  onLoad(data) {
+    console.log(data);
+  },
   methods: {
     rightClick() {},
   },

@@ -1,8 +1,9 @@
-<!-- 热点资讯 -->
+<!-- 定位 -->
 <template>
-  <view class="information-hot-wrap pageBox">
-    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="150">
-    </me-tabs>
+  <view class="location-wrap pageBox">
+    <custom-navbar :title="pageTitle || '定位'"> </custom-navbar>
+    <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false"> </me-tabs>
+    <location-filter-box></location-filter-box>
 
     <swiper
       :style="{ height: height }"
@@ -22,28 +23,34 @@
 </template>
 
 <script>
-import MescrollItem from "./components/information-mescroll-swiper-item.vue";
+import CustomNavbar from "@/components/custom-navbar";
+import SwiperSearch from "@/components/swiper-search";
+import MescrollItem from "./components/location-mescroll-swiper-item.vue";
+import LocationFilterBox from "./components/location-filter-box.vue";
 
 export default {
   components: {
+    CustomNavbar,
+    SwiperSearch,
+    LocationFilterBox,
     MescrollItem,
   },
   data() {
     return {
+      pageTitle: null,
       height: "400px", // 需要固定swiper的高度
       tabs: [
-        { id: 1, key: 1, name: "废钢早参" },
-        { id: 2, key: 2, name: "废钢早评" },
-        { id: 3, key: 3, name: "废钢日评" },
-        { id: 4, key: 4, name: "沙钢调价" },
-        { id: 5, key: 5, name: "钢坯调价" },
-        { id: 6, key: 6, name: "新昌铜业条件" },
+        { id: 1, key: 1, name: "钢厂调价" },
+        { id: 2, key: 2, name: "市场价格" },
+        { id: 3, key: 3, name: "基地价格" },
       ],
       tabIndex: 0, // 当前tab的下标
     };
   },
+  onLoad(data) {
+    this.pageTitle = data.title;
+  },
   methods: {
-    // 轮播菜单
     swiperChange(e) {
       this.tabIndex = e.detail.current;
     },
@@ -73,7 +80,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.information-hot-wrap {
+.location-wrap {
   background-color: $uni-bg-color;
+  padding: 0 20rpx;
 }
 </style>

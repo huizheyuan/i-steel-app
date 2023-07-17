@@ -16,8 +16,7 @@
           <u-icon name="plus" size="40" bold></u-icon>
         </view>
       </swiper-search>
-      <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false" :tab-width="130">
-      </me-tabs>
+      <me-tabs v-model="tabIndex" :tabs="tabs" :fixed="false"> </me-tabs>
       <filter-box></filter-box>
     </view>
 
@@ -53,10 +52,8 @@ export default {
   data() {
     return {
       searchList: [
-        { id: "1111", title: "货源1" },
-        { id: "2222", title: "货源12" },
-        { id: "3333", title: "货源13" },
-        { id: "4444", title: "货源14" },
+        { id: "1", title: "货源1" },
+        { id: "2", title: "货源2" },
       ],
       height: "400px", // 需要固定swiper的高度
       tabs: SOURCE_SORT.properties,
